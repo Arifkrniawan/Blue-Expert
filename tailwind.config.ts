@@ -1,3 +1,4 @@
+import { Poppins } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -22,6 +23,7 @@ const config: Config = {
         beeboMedium: ["Beebo-Medium", "sans-serif"],
         manropeRegular: ["Manrope-Regular", "sans-serif"],
         lotaLight: ["Lota-Grotesque-Light", "sans-serif"],
+        poppinsSemiBold: ["Poppins-SemiBold", "sans-serif"]
       },
       letterSpacing: {
         "-2.16": "-2.16px",

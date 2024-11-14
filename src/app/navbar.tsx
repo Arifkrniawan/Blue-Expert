@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <nav className="flex relative h-[8.28dvh] bg-gray-900">
-      <div className="h-[8.28dvh] w-4/5 mx-auto my-auto flex justify-between">
+    <nav className="flex relative h-[8.28dvh] bg-[#0D100D] w-dvw">
+      <div className="h-[8.28dvh] w-dvw mx-[6.25rem] my-auto flex justify-between">
         <div className="py-[24px] gap-[8px] flex items-center">
           <a className="text-white p-[24px]">Work & Project</a>
         </div>

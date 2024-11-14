@@ -196,7 +196,7 @@ export default function Home() {
         />
       </section>
 
-      <section className="footer grid grid-rows-3 h-[72.625rem] text-white overflow-hidden w-[95%] mx-auto bg-[#0D100D]">
+      <section className="relative footer grid grid-rows-3 h-[72.625rem] text-white overflow-hidden w-[95%] mx-auto">
         <div className="row-start-1 row-end-2 items-center flex-row justify-center w-dvh m-auto">
           <p className="text-center text-blue-500 mt-20 text-base">Team</p>
           <h2 className="text-center mt-3 text-[3.5rem] font-bold w-[48rem]">
@@ -207,25 +207,18 @@ export default function Home() {
             lorem id justo mollis congue. Proin malesuada at ex vel
             pellentesque. Cras eget tellus ligula.
           </p>
-          <Image
-            className="relative w-[38.75rem] h-[28.375rem] flex-row mt-8"
-            src="/heroExpert.svg"
-            alt="heroexpert"
-            width={180}
-            height={37}
-          />
         </div>
         <div className="flex row-start-2 row-end-3 mt-72 h-[19.75rem] w-dvh justify-center items-center gap-8 overflow-hidden">
           <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
             <div className="flex flex-col items-center justify-center">
               <Image
-                className="flex flex-column items-center justify-center mb-5"
+                className="mb-5"
                 src="/Abby.svg"
                 alt="Abby"
                 width={80}
                 height={80}
               />
-              <h4 className="flex text-Center font-manropeRegular font-semibold text-lg">
+              <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
                 Abby
               </h4>
               <p className="text-base font-normal text-blue-500 mb-2">CEO</p>
@@ -233,9 +226,8 @@ export default function Home() {
                 Former co-founder of Opendoor. Early staff at Spotify and
                 Clearbit.
               </p>
-              <div className="flex flex-row mt-4 gap-4">
+              <div className="flex mt-4 gap-4">
                 <Image
-                  className="flex"
                   src="/linkedin-icon.svg"
                   alt="linkedin"
                   width={20}
@@ -243,13 +235,13 @@ export default function Home() {
                 />
                 <Image
                   src="/twitter-icon.svg"
-                  alt="linkedin"
+                  alt="twitter"
                   width={20}
                   height={20}
                 />
                 <Image
                   src="/web-icon.svg"
-                  alt="linkedin"
+                  alt="web"
                   width={20}
                   height={20}
                 />
@@ -259,13 +251,13 @@ export default function Home() {
           <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
             <div className="flex flex-col items-center justify-center">
               <Image
-                className="flex flex-column items-center justify-center mb-5"
+                className="mb-5"
                 src="/Riki.svg"
                 alt="Riki"
                 width={80}
                 height={80}
               />
-              <h4 className="flex text-Center font-manropeRegular font-semibold text-lg">
+              <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
                 Riki
               </h4>
               <p className="text-base font-normal text-blue-500 mb-2">CTO</p>
@@ -275,7 +267,6 @@ export default function Home() {
               </p>
               <div className="flex flex-row mt-4 gap-4">
                 <Image
-                  className="flex"
                   src="/linkedin-icon.svg"
                   alt="linkedin"
                   width={20}
@@ -283,13 +274,13 @@ export default function Home() {
                 />
                 <Image
                   src="/twitter-icon.svg"
-                  alt="linkedin"
+                  alt="twitter"
                   width={20}
                   height={20}
                 />
                 <Image
                   src="/web-icon.svg"
-                  alt="linkedin"
+                  alt="web"
                   width={20}
                   height={20}
                 />
@@ -299,13 +290,13 @@ export default function Home() {
           <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
             <div className="flex flex-col items-center justify-center">
               <Image
-                className="flex flex-column items-center justify-center mb-5"
+                className="mb-5"
                 src="/Andre.svg"
                 alt="Andre"
                 width={80}
                 height={80}
               />
-              <h4 className="flex text-Center font-manropeRegular font-semibold text-lg">
+              <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
                 Andre
               </h4>
               <p className="text-base font-normal text-blue-500 mb-2">CMO</p>
@@ -315,7 +306,6 @@ export default function Home() {
               </p>
               <div className="flex flex-row mt-4 gap-4">
                 <Image
-                  className="flex"
                   src="/linkedin-icon.svg"
                   alt="linkedin"
                   width={20}
@@ -323,29 +313,29 @@ export default function Home() {
                 />
                 <Image
                   src="/twitter-icon.svg"
-                  alt="linkedin"
+                  alt="twitter"
                   width={20}
                   height={20}
                 />
                 <Image
                   src="/web-icon.svg"
-                  alt="linkedin"
+                  alt="web"
                   width={20}
                   height={20}
                 />
               </div>
             </div>
           </div>
-          <div className="flex flex-col flex-start rounded-[1.25rem] h-[199.75rem] w-[17.5rem] p-6 card">
+          <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
             <div className="flex flex-col items-center justify-center">
               <Image
-                className="flex flex-column items-center justify-center mb-5"
+                className="mb-5"
                 src="/Irfan.svg"
                 alt="Irfan"
                 width={80}
                 height={80}
               />
-              <h4 className="flex text-Center font-manropeRegular font-semibold text-lg">
+              <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
                 Irfan
               </h4>
               <p className="text-base font-normal text-blue-500 mb-2">
@@ -357,7 +347,6 @@ export default function Home() {
               </p>
               <div className="flex flex-row mt-4 gap-4">
                 <Image
-                  className="flex"
                   src="/linkedin-icon.svg"
                   alt="linkedin"
                   width={20}
@@ -365,13 +354,13 @@ export default function Home() {
                 />
                 <Image
                   src="/twitter-icon.svg"
-                  alt="linkedin"
+                  alt="twitter"
                   width={20}
                   height={20}
                 />
                 <Image
                   src="/web-icon.svg"
-                  alt="linkedin"
+                  alt="web"
                   width={20}
                   height={20}
                 />

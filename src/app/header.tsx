@@ -11,23 +11,21 @@ export default function Header() {
     );
     const marqueeContent = document.querySelector("ul.marquee-content");
 
-    window.addEventListener("load", ()=>{
+    window.addEventListener("load", () => {
       const tl = gsap.timeline();
-      
-      tl.to('header', {
-        background:'#ffffff',
-        duration:1.5,
-        scaleX:0.95,
-        ease:'power2.out'
-      })
-      .to('header',{
-        background:'#0D100D',
-        scaleX:1,
+
+      tl.to("header", {
+        background: "#ffffff",
         duration: 1.5,
-        ease:'power2.out'
+        scaleX: 0.95,
+        ease: "power2.out",
+      }).to("header", {
+        background: "#0D100D",
+        scaleX: 1,
+        duration: 1.5,
+        ease: "power2.out",
       });
-    })
-    
+    });
 
     if (marqueeContent) {
       root.style.setProperty(
@@ -42,7 +40,21 @@ export default function Header() {
 
   return (
     <header className="header flex relative flex-col text-white w-[95%] mx-auto bg-[#0D100D]">
-      <div className="relative container mx-auto grid grid-rows-2 h-[80.87dvh] w-[90dvw] content-center item-center justify-items-center overflow-hidden">
+      <Image
+        className="absolute border-0 left-0"
+        src="/vector-7.svg"
+        alt="vector7"
+        width={549}
+        height={787}
+      />
+      <Image
+        className="absolute border-0 right-0"
+        src="/vector-6.svg"
+        alt="vector6"
+        width={901}
+        height={952}
+      />
+      <div className="relative container mx-auto grid grid-rows-2 h-[80.87dvh] w-[80dvw] content-center item-center justify-items-center overflow-hidden">
         <Image
           className="slide-up absolute left-0 -bottom-8"
           src="/studioDisplay1.svg"
@@ -71,25 +83,19 @@ export default function Header() {
           width={620}
           height={454}
         />
-        <Image
-        className="absolute border-0 right-0"
-        src="vector-6.svg"
-        alt="vector6"
-        width={901}
-        height={952}/>
         <div className="relative grid grid-cols-2">
-          <div className="relative grid overflow-x-hidden grid-cols-3 grid-rows-3 col-start-1 col-end-1 mt-12 w-[657px] h-[266px]">
+          <div className="relative grid overflow-x-hidden grid-cols-3 grid-rows-3 col-start-1 col-end-1 mt-12 w-[43rem] h-[16.625rem]">
             <div className="relative content-span grid col-start-1 col-end-4 row-start-1 row-end-2 h-[6.5rem]">
               <span>
                 <Image
-                  className="absolute w-[48px] h-[75.887px] ml-[1.6875rem]"
+                  className="absolute w-[48px] h-[4.75rem] ml-[1.6875rem]"
                   src="/logosemut.svg"
                   alt="logo"
                   width={180}
                   height={37}
                 />
                 <h1 className="relative firstTitle leading-[6.5rem] font-lota text-7xl tracking-custom row-start-1">
-                  <b>Create</b> website
+                  <b>Create</b> websites
                 </h1>
                 <Image
                   className="ml-16 mt-[-1rem] splash"
@@ -119,17 +125,17 @@ export default function Header() {
               />
             </button>
           </div>
-          <div className="relative grid grid-rows-2 col-start-2 col-end-3 mt-12 mr-[5.1875rem] ml-56 h-[266px]">
-            <div className="relative grid col-start-1 col-end-1 font-manropeRegular">
-              <p className="header-slide-up content-span">
-                Lorem ipsum dolor sit amet.
+          <div className="relative grid grid-rows-2 col-start-2 col-end-3 mt-12 ml-[11.625rem] h-[266px]">
+            <div className="relative grid col-start-1 col-end-1 font-manropeRegular w-[22rem]">
+              <p className="header-slide-up text-[1rem] content-span">
+                Lorem ipsum dolor sit amet, consectetur
                 <br className="header-slide-up content-span" />
                 Quisque malesuada ipsum nulla.
-                <br className="header-slide-up content-span"/>
-                Cras eget leo vel velit.
+                <br className="header-slide-up content-span" />
+                Vestibulum ante ipsum primis in faucibus
               </p>
             </div>
-            <div className="relative grid slide-up col-start-1 col-end-1 row-start-2 row-end-2">
+            <div className="header-last-element relative grid slide-up col-start-1 col-end-1 row-start-2 row-end-2">
               <Image
                 className="absolute z-5 mt-[-0.8rem] z-4"
                 src="review-photo.svg"
@@ -159,10 +165,19 @@ export default function Header() {
                 height={40}
               />
               <p className="font-manropeRegular mt-8">6k+ reviews (4.8 of 5)</p>
+              <Image
+                className="arrow absolute right-36 bottom-4"
+                src="/arrow.png"
+                width={68}
+                height={68}
+                alt="arrow"
+              />
+              <h3 className="absolute right-8 bottom-16 text-[1.125rem] font-poppinsSemiBold">
+                Our Project
+              </h3>
             </div>
           </div>
         </div>
-
       </div>
       <div className="relative flex left-[50%] right-[50%] h-[10.85dvh] ml-[-50dvw] mr-[-50dvw] bg-blue-400">
         <div className="RT1 w-64 content-center font-manropeRegular">

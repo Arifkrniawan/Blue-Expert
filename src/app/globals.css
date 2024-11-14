@@ -125,6 +125,8 @@ div > span {
   animation: slideUp1 2s ease-in-out forwards;
 }
 
+
+
 .header-slide-up {
   transform: translateY(100%);
   animation: slideUp1 2s ease-in-out forwards;
@@ -138,8 +140,8 @@ div > span {
 }
 
 .transition-transformY {
-  transition: transform 1s ease-in-out;
   transform: translateY(100%);
+  transition: transform 1s ease-in-out;
 }
 
 p > br {
@@ -194,6 +196,26 @@ p > br:nth-child(2) {
   box-shadow: rgba(0, 0, 0, 0.38) 0px -120px 36px -28px inset;
 }
 
+.slide-up {
+  transform: translateY(50%);
+  animation: slideUp 2s ease-in-out forwards;
+}
+
+.marquee {
+  width: var(--marquee-width);
+  height: var(--marquee-height);
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-content {
+  position: absolute;
+  list-style: none;
+  height: 100%;
+  display: flex;
+  animation: scrolling linear var(--marquee-animation-duration) infinite;
+}
+
 .see-all{
   color: #14B1FF;
   border-bottom: 1px solid #14B1FF;
@@ -209,11 +231,8 @@ p > br:nth-child(2) {
   border: 2px solid #fff;
   background: rgba(255, 255, 255, 0.4);
   box-shadow: 0px 18px 46px 0px rgba(0, 0, 0, 0.08);
+  transform: translateY(0);
   transition: transform var(--def-transition-duration) ease-in-out;
-}
-
-.web-card-bg{
-  border-radius: 0.5rem;
 }
 
 .product-card:hover{
@@ -242,9 +261,36 @@ p > br:nth-child(2) {
   box-shadow: 0px 13.655px 24.828px 0px rgba(252, 76, 218, 0.27);
 }
 
+.web-card-bg{
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.web-card,
+.web-card-bg > img {
+  transform: translateY(0);
+  transition: transform var(--def-transition-duration) ease-in-out,
+  background-color var(--def-transition-duration) ease-in-out;
+}
+
 .product-card:hover .web-card{
   background: #83036A;
-  ;
+  transform: translateY(-1.5rem);
+}
+
+.product-card:hover .web-card-bg > img,
+.product-card:hover .cms-card-bg > img,
+.product-card:hover .mobile-card-bg > img,
+.product-card:hover .design-card-bg > img{
+  transform: translateY(-1.5rem)
+}
+
+.product-card:hover .web-card-bg,
+.product-card:hover .cms-card-bg,
+.product-card:hover .mobile-card-bg,
+.product-card:hover .design-card-bg {
+  opacity: 1;
 }
 
 .cms-card {
@@ -253,10 +299,46 @@ p > br:nth-child(2) {
   box-shadow: 0px 13.655px 24.828px 0px rgba(54, 19, 250, 0.25);
 }
 
+.cms-card-bg{
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.cms-card,
+.cms-card-bg > img {
+  transform: translateY(0);
+  transition: transform var(--def-transition-duration) ease-in-out,
+  background-color var(--def-transition-duration) ease-in-out;
+}
+
+.product-card:hover .cms-card{
+  background: #16018D;
+  transform: translateY(-1.5rem);
+}
+
 .mobile-card {
   border-radius: 18.621px;
   background: #3ae2e2;
   box-shadow: 0px 13.655px 24.828px 0px rgba(44, 229, 229, 0.25);
+}
+
+.mobile-card-bg{
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.mobile-card,
+.mobile-card-bg > img {
+  transform: translateY(0);
+  transition: transform var(--def-transition-duration) ease-in-out,
+  background-color var(--def-transition-duration) ease-in-out;
+}
+
+.product-card:hover .mobile-card{
+  background: #027777;
+  transform: translateY(-1.5rem);
 }
 
 .design-card {
@@ -265,26 +347,25 @@ p > br:nth-child(2) {
   box-shadow: 0px 13.655px 24.828px 0px rgba(57, 196, 255, 0.33);
 }
 
-
-.slide-up {
-  transform: translateY(50%);
-  animation: slideUp 2s ease-in-out forwards;
+.design-card-bg{
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
-.marquee {
-  width: var(--marquee-width);
-  height: var(--marquee-height);
-  overflow: hidden;
-  position: relative;
+.design-card,
+.design-card-bg > img {
+  transform: translateY(0);
+  transition: transform var(--def-transition-duration) ease-in-out,
+  background-color var(--def-transition-duration) ease-in-out;
 }
 
-.marquee-content {
-  position: absolute;
-  list-style: none;
-  height: 100%;
-  display: flex;
-  animation: scrolling linear var(--marquee-animation-duration) infinite;
+.product-card:hover .design-card{
+  background: #005C9F;
+  transform: translateY(-1.5rem);
 }
+
+
 /* .marquee-content:hover {
   animation-play-state: paused;
 } */

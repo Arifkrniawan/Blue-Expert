@@ -30,28 +30,28 @@ export default function Home() {
       <section className="grid grid-row-2 h-screen bg-white">
         <div className="row-start-1 row-end-1 flex flex-col justify-center items-center m-auto mt-0 col-start-1">
           <p className="text-center text-blue-500 mt-20 text-base">Feature</p>
-          <h2 className="text-center text-[56px] font-bold font-lota mb-5">
+          <h2 className="text-center text-[3.5rem] font-bold font-lota mb-5">
             Elevate With Our Features!
           </h2>
-          <p className="text-center font-manropeRegular text-[18.7px] text-gray-600 w-[768px] m-auto">
+          <p className="text-center font-manropeRegular text-[1.169rem] text-gray-600 w-[48rem] m-auto">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
-        <div className="flex row-start-1 row-end-2 mt-[346px] justify-center gap-x-6 col-start-1">
+        <div className="flex row-start-1 row-end-2 mt-[22.75rem] justify-center gap-x-6 col-start-1">
           <div className="product-card flex flex-col items-center py-11 px-4 w-[17.813rem] h-[21.875rem] z-10">
             <div className="relative flex flex-col items-center">
               <div className="absolute web-card-bg flex justify-center align-center h-[6.688rem] w-[14.8rem] bg-[#fc4cda] overflow-hidden">
                 <Image
-                  className="absolute left-2 -bottom-[1rem] -z-[1]"
-                  src="product-card-bg.svg"
+                  className="absolute left-2 -bottom-[2.5rem]" //-bottom-[1rem]
+                  src="/product-card-bg.svg"
                   alt="product-card-bg"
                   width={125}
                   height={102.52}
                 />
                 <Image
-                  className="absolute -right-2 -bottom-[1.8rem]"
-                  src="product-card-bg-1.svg"
+                  className="absolute -right-2 -bottom-[3.3rem]"  //-bottom-[3.3rem]
+                  src="/product-card-bg-1.svg"
                   alt="product-card-bg"
                   width={160}
                   height={140}
@@ -66,7 +66,7 @@ export default function Home() {
                   height={45.272}
                 />
               </div>
-              <h2 className="font-lota text-center font-bold text-[40px] mt-12 h-78">
+              <h2 className="font-lota text-center font-bold text-[2.5rem] mt-12 h-78">
                 Web
               </h2>
               <p className="font-lotaLight text-center font-extralight text-gray-500 text-base mt-2">
@@ -74,19 +74,19 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="flex flex-col items-center py-11 px-[17px] product-card w-[17.813rem] h-[21.875rem] z-10">
+          <div className="flex flex-col items-center py-11 px-[1.063rem] product-card w-[17.813rem] h-[21.875rem] z-10">
             <div className="flex flex-col items-center">
-              <div className="absolute web-card-bg flex justify-center align-center h-[6.688rem] w-[14.8rem] bg-[#3613fa] overflow-hidden">
+              <div className="absolute cms-card-bg flex justify-center align-center h-[6.688rem] w-[14.8rem] bg-[#3613fa] overflow-hidden">
                 <Image
-                  className="absolute left-2 -bottom-[1rem] -z-[1]"
-                  src="product-card-bg.svg"
+                  className="absolute left-2 -bottom-[2.5rem]"
+                  src="/product-card-bg.svg"
                   alt="product-card-bg"
                   width={125}
                   height={102.52}
                 />
                 <Image
-                  className="absolute -right-2 -bottom-[1.8rem]"
-                  src="product-card-bg-1.svg"
+                  className="absolute -right-2 -bottom-[3.3rem]"
+                  src="/product-card-bg-1.svg"
                   alt="product-card-bg"
                   width={160}
                   height={140}
@@ -101,7 +101,7 @@ export default function Home() {
                   height={45.272}
                 />
               </div>
-              <h2 className="font-lota text-center font-bold text-[40px] mt-12 h-78">
+              <h2 className="font-lota text-center font-bold text-[2.5rem] mt-12 h-78">
                 CMS
               </h2>
               <p className="font-lotaLight text-center font-extralight text-gray-500 text-base mt-2">
@@ -109,19 +109,19 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="flex flex-col items-center py-11 px-[17px] product-card w-[17.813rem] h-[21.875rem] z-10">
+          <div className="flex flex-col items-center py-11 px-[1.063rem] product-card w-[17.813rem] h-[21.875rem] z-10">
             <div className="flex flex-col items-center">
-              <div className="absolute web-card-bg flex justify-center align-center h-[6.688rem] w-[14.8rem] bg-[#3ae2e2] overflow-hidden">
+              <div className="absolute mobile-card-bg flex justify-center align-center h-[6.688rem] w-[14.8rem] bg-[#3ae2e2] overflow-hidden">
                 <Image
-                  className="absolute left-2 -bottom-[1rem] -z-[1]"
-                  src="product-card-bg.svg"
+                  className="absolute left-2 -bottom-[2.5rem]"
+                  src="/product-card-bg.svg"
                   alt="product-card-bg"
                   width={125}
                   height={102.52}
                 />
                 <Image
-                  className="absolute -right-2 -bottom-[1.8rem]"
-                  src="product-card-bg-1.svg"
+                  className="absolute -right-2 -bottom-[3.3rem]"
+                  src="/product-card-bg-1.svg"
                   alt="product-card-bg"
                   width={160}
                   height={140}
@@ -136,7 +136,7 @@ export default function Home() {
                   height={49.655}
                 />
               </div>
-              <h2 className="font-lota text-center font-bold text-[40px] mt-12 h-78">
+              <h2 className="font-lota text-center font-bold text-[2.5rem] mt-12 h-78">
                 Mobile
               </h2>
               <p className="font-lotaLight text-center font-extralight text-gray-500 text-base mt-2">
@@ -144,19 +144,19 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="flex flex-col items-center py-11 px-[17px] product-card w-[17.813rem] h-[21.875rem] z-10">
+          <div className="flex flex-col items-center py-11 px-[1.063rem] product-card w-[17.813rem] h-[21.875rem] z-10">
             <div className="flex flex-col items-center">
-              <div className="absolute web-card-bg flex justify-center align-center h-[6.688rem] w-[14.8rem] bg-[#46b1ff] overflow-hidden">
+              <div className="absolute design-card-bg flex justify-center align-center h-[6.688rem] w-[14.8rem] bg-[#46b1ff] overflow-hidden">
                 <Image
-                  className="absolute left-2 -bottom-[1rem] -z-[1]"
-                  src="product-card-bg.svg"
+                  className="absolute left-2 -bottom-[2.5rem]"
+                  src="/product-card-bg.svg"
                   alt="product-card-bg"
                   width={125}
                   height={102.52}
                 />
                 <Image
-                  className="absolute -right-2 -bottom-[1.8rem]"
-                  src="product-card-bg-1.svg"
+                  className="absolute -right-2 -bottom-[3.3rem]"
+                  src="/product-card-bg-1.svg"
                   alt="product-card-bg"
                   width={160}
                   height={140}
@@ -171,7 +171,7 @@ export default function Home() {
                   height={45.272}
                 />
               </div>
-              <h2 className="font-lota text-center font-bold text-[40px] mt-12 h-78">
+              <h2 className="font-lota text-center font-bold text-[2.5rem] mt-12 h-78">
                 Design
               </h2>
               <p className="font-lotaLight text-center font-extralight text-gray-500 text-base mt-2">
@@ -181,14 +181,14 @@ export default function Home() {
           </div>
         </div>
         <Image
-          className="col-start-1 row-start-1 mt-[300px] ml-[197px]"
+          className="col-start-1 row-start-1 mt-[18.75rem] ml-[12.313rem]"
           src="feature-bg-blue.svg"
           alt="bg"
           width={380}
           height={700}
         />
         <Image
-          className="col-start-1 row-start-1 mt-[190px] ml-[400px]"
+          className="col-start-1 row-start-1 mt-[11.875rem] ml-[25rem]"
           src="feature-bg-pink.svg"
           alt="bg"
           width={800}
@@ -196,30 +196,30 @@ export default function Home() {
         />
       </section>
 
-      <section className="footer grid grid-rows-3 h-[1162px] text-white overflow-hidden w-[95%] mx-auto bg-[#0D100D]">
+      <section className="footer grid grid-rows-3 h-[72.625rem] text-white overflow-hidden w-[95%] mx-auto bg-[#0D100D]">
         <div className="row-start-1 row-end-2 items-center flex-row justify-center w-dvh m-auto">
           <p className="text-center text-blue-500 mt-20 text-base">Team</p>
-          <h2 className="text-center mt-3 text-[56px] font-bold w-[768px]">
+          <h2 className="text-center mt-3 text-[3.5rem] font-bold w-[48rem]">
             Meet Out Team
           </h2>
-          <p className="flex items-center justify-center w-[768px] text-center mt-[1rem] text-lg">
+          <p className="flex items-center justify-center w-[48rem] text-center mt-[1rem] text-lg">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a
             lorem id justo mollis congue. Proin malesuada at ex vel
             pellentesque. Cras eget tellus ligula.
           </p>
           <Image
-            className="relative w-[620px] h-[454px] flex-row mt-8"
+            className="relative w-[38.75rem] h-[28.375rem] flex-row mt-8"
             src="/heroExpert.svg"
             alt="heroexpert"
             width={180}
             height={37}
           />
         </div>
-        <div className="flex row-start-2 row-end-3 mt-72 h-[316px] w-dvh justify-center items-center gap-8 overflow-hidden">
-          <div className="flex flex-col flex-start rounded-[20px] h-[316px] w-[280px] p-6 card">
+        <div className="flex row-start-2 row-end-3 mt-72 h-[19.75rem] w-dvh justify-center items-center gap-8 overflow-hidden">
+          <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
             <div className="flex flex-col items-center justify-center">
               <Image
-                className="flex flex-column items-center justify-center mb-[20px]"
+                className="flex flex-column items-center justify-center mb-5"
                 src="/Abby.svg"
                 alt="Abby"
                 width={80}
@@ -256,10 +256,10 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col flex-start rounded-[20px] h-[316px] w-[280px] p-6 card">
+          <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
             <div className="flex flex-col items-center justify-center">
               <Image
-                className="flex flex-column items-center justify-center mb-[20px]"
+                className="flex flex-column items-center justify-center mb-5"
                 src="/Riki.svg"
                 alt="Riki"
                 width={80}
@@ -296,10 +296,10 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col flex-start rounded-[20px] h-[316px] w-[280px] p-6 card">
+          <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
             <div className="flex flex-col items-center justify-center">
               <Image
-                className="flex flex-column items-center justify-center mb-[20px]"
+                className="flex flex-column items-center justify-center mb-5"
                 src="/Andre.svg"
                 alt="Andre"
                 width={80}
@@ -336,10 +336,10 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col flex-start rounded-[20px] h-[316px] w-[280px] p-6 card">
+          <div className="flex flex-col flex-start rounded-[1.25rem] h-[199.75rem] w-[17.5rem] p-6 card">
             <div className="flex flex-col items-center justify-center">
               <Image
-                className="flex flex-column items-center justify-center mb-[20px]"
+                className="flex flex-column items-center justify-center mb-5"
                 src="/Irfan.svg"
                 alt="Irfan"
                 width={80}

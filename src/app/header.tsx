@@ -39,20 +39,20 @@ export default function Header() {
   });
 
   return (
-    <header className="header flex relative flex-col text-white w-[95%] mx-auto bg-[#0D100D]">
+    <header className="header flex relative flex-col text-white w-[95%] mx-auto bg-[#0D100D] oveflow-hidden">
       <Image
-        className="absolute border-0 left-0"
+        className="absolute border-0 left-0 h-[49.4375rem]"
         src="/vector-7.svg"
         alt="vector7"
-        width={549}
+        width={640}
         height={787}
       />
       <Image
-        className="absolute border-0 right-0"
+        className="absolute border-0 right-0 top-18 h-[49.4375rem]"
         src="/vector-6.svg"
         alt="vector6"
-        width={901}
-        height={952}
+        width={640}
+        height={791}
       />
       <div className="relative container mx-auto grid grid-rows-2 h-[80.87dvh] w-[80dvw] content-center item-center justify-items-center overflow-hidden">
         <Image

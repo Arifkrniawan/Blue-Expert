@@ -50,7 +50,7 @@ export default function Home() {
                   height={102.52}
                 />
                 <Image
-                  className="absolute -right-2 -bottom-[3.3rem]"  //-bottom-[3.3rem]
+                  className="absolute -right-2 -bottom-[3.3rem]" //-bottom-[3.3rem]
                   src="/product-card-bg-1.svg"
                   alt="product-card-bg"
                   width={160}
@@ -196,17 +196,29 @@ export default function Home() {
         />
       </section>
 
-      <section className="relative footer grid grid-rows-3 h-[72.625rem] text-white overflow-hidden w-[95%] mx-auto">
-        <div className="row-start-1 row-end-2 items-center flex-row justify-center w-dvh m-auto">
-          <p className="text-center text-blue-500 mt-20 text-base">Team</p>
-          <h2 className="text-center mt-3 text-[3.5rem] font-bold w-[48rem]">
-            Meet Out Team
-          </h2>
-          <p className="flex items-center justify-center w-[48rem] text-center mt-[1rem] text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a
-            lorem id justo mollis congue. Proin malesuada at ex vel
-            pellentesque. Cras eget tellus ligula.
-          </p>
+      <section className="relative footer grid grid-rows-3 h-[72.625rem] text-white overflow-hidden w-[95%] mx-auto bg-[#ffff]">
+        <div className="relative footer-head row-start-1 row-end-2 items-center flex-row justify-center w-dvh m-auto z-[2]">
+          <div className="relative content-span overflow-hidden">
+            <span>
+              <p className="text-center text-blue-500 mt-20 text-base">Team</p>
+            </span>
+          </div>
+          <div className="relative content-span overflow-hidden">
+            <span>
+              <h2 className="text-center mt-3 text-[3.5rem] font-bold w-[48rem]">
+                Meet Out Team
+              </h2>
+            </span>
+          </div>
+          <div className="relative content-span overflow-hidden">
+            <span>
+              <p className="flex items-center justify-center w-[48rem] text-center mt-[1rem] text-lg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+                a lorem id justo mollis congue. Proin malesuada at ex vel
+                pellentesque. Cras eget tellus ligula.
+              </p>
+            </span>
+          </div>
         </div>
         <div className="flex row-start-2 row-end-3 mt-72 h-[19.75rem] w-dvh justify-center items-center gap-8 overflow-hidden">
           <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
@@ -239,12 +251,7 @@ export default function Home() {
                   width={20}
                   height={20}
                 />
-                <Image
-                  src="/web-icon.svg"
-                  alt="web"
-                  width={20}
-                  height={20}
-                />
+                <Image src="/web-icon.svg" alt="web" width={20} height={20} />
               </div>
             </div>
           </div>
@@ -278,12 +285,7 @@ export default function Home() {
                   width={20}
                   height={20}
                 />
-                <Image
-                  src="/web-icon.svg"
-                  alt="web"
-                  width={20}
-                  height={20}
-                />
+                <Image src="/web-icon.svg" alt="web" width={20} height={20} />
               </div>
             </div>
           </div>
@@ -317,12 +319,7 @@ export default function Home() {
                   width={20}
                   height={20}
                 />
-                <Image
-                  src="/web-icon.svg"
-                  alt="web"
-                  width={20}
-                  height={20}
-                />
+                <Image src="/web-icon.svg" alt="web" width={20} height={20} />
               </div>
             </div>
           </div>
@@ -358,12 +355,7 @@ export default function Home() {
                   width={20}
                   height={20}
                 />
-                <Image
-                  src="/web-icon.svg"
-                  alt="web"
-                  width={20}
-                  height={20}
-                />
+                <Image src="/web-icon.svg" alt="web" width={20} height={20} />
               </div>
             </div>
           </div>

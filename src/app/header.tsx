@@ -1,31 +1,17 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import gsap from "gsap";
 
 export default function Header() {
+  const [flash, setFlashed] = useState(false);
+
+
   useEffect(() => {
     const root = document.documentElement;
     const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue(
       "--marquee-elements-displayed"
     );
     const marqueeContent = document.querySelector("ul.marquee-content");
-
-    window.addEventListener("load", () => {
-      const tl = gsap.timeline();
-
-      tl.to("header", {
-        background: "#ffffff",
-        duration: 1.5,
-        scaleX: 0.95,
-        ease: "power2.out",
-      }).to("header", {
-        background: "#0D100D",
-        scaleX: 1,
-        duration: 1.5,
-        ease: "power2.out",
-      });
-    });
 
     if (marqueeContent) {
       root.style.setProperty(
@@ -39,7 +25,14 @@ export default function Header() {
   });
 
   return (
-    <header className="header flex relative flex-col text-white w-[95%] mx-auto bg-[#0D100D] oveflow-hidden">
+    <header 
+    onMouseEnter={()=>{
+      if(!flash){
+        setFlashed(true)
+      }
+    }}
+    style={{animation: flash? "backgroundFlashing 1s ease-in-out":"none"}}
+    className={`header flex relative flex-col text-white w-[95%] mx-auto bg-[#0D100D] oveflow-hidden`}>
       <Image
         className="absolute border-0 left-0 h-[49.4375rem]"
         src="/vector-7.svg"
@@ -84,7 +77,7 @@ export default function Header() {
           height={454}
         />
         <div className="relative grid grid-cols-2">
-          <div className="relative grid overflow-x-hidden grid-cols-3 grid-rows-3 col-start-1 col-end-1 mt-12 w-[43rem] h-[16.625rem]">
+          <div className="relative animation-slideup grid overflow-x-hidden grid-cols-3 grid-rows-3 col-start-1 col-end-1 mt-12 w-[43rem] h-[16.625rem]">
             <div className="relative content-span grid col-start-1 col-end-4 row-start-1 row-end-2 h-[6.5rem]">
               <span>
                 <Image
@@ -265,7 +258,7 @@ export default function Header() {
           </p>
 
           <a className="see-all" href="">
-            See All{" "}
+            See All <Image src="/arrow-narrow-right-down.svg" alt="arrow narrow" width={26} height={26}/>
           </a>
         </div>
       </div>

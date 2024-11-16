@@ -82,6 +82,15 @@ body {
   border-bottom-right-radius: 0rem;
 }
 
+.header:hover .header-hovered {
+  animation: backgroundFlashing 1s ease;
+}
+
+
+.header:hover > img {
+  opacity: 0;
+}
+
 .header-last-element > .arrow,
 .header-last-element > h3 {
   opacity: 1;
@@ -98,21 +107,21 @@ body {
   border-top-right-radius: 4rem;
   border-collapse: separate;
   transition: all 2s ease-in-out;
-  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, transparent 20%), white;
-  box-shadow: inset 0 120px 60px -50px red;
+  background: url("/background-footer.svg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .footer::after{
   content: "";
   position:absolute;
-  width: 80%;
-  box-shadow: inset 0 120px 60px -50px red;
-  background: 
-  radial-gradient(ellipse at top, rgba(255,0,0,0.3) 0%, transparent 70%),
-  #0D100D;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  background: url("/background-footer-after.svg") no-repeat top;
+  background-size: contain;
 }
-
-
 
 .footer:hover {
   width: 100dvw;
@@ -147,10 +156,11 @@ body {
   clip-path: inset(0 0 0 0);
 }
 
-div > span {
-  inset: 0;
+.animation-slideup div > span {
+  display: inline-block;
   transform: translateY(100%);
   animation: slideUp1 2s ease-in-out forwards;
+  pointer-events: none;
 }
 
 .header-slide-up {
@@ -245,6 +255,9 @@ p > br:nth-child(2) {
 .see-all {
   color: #14b1ff;
   border-bottom: 1px solid #14b1ff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .card {
@@ -393,6 +406,18 @@ p > br:nth-child(2) {
 
 /*footer*/
 
+.footer-head .content-span > span {
+  transform: translateY(100%);
+  transition: transform 1s ease-in-out;
+  display: block;
+}
+
+.footer:hover .footer-head .content-span > span {
+  transform: translateY(0);
+}
+
+
+
 /* .footer::after {
   content: "";
   position: absolute;
@@ -447,6 +472,18 @@ p > br:nth-child(2) {
   }
 }
 
+@keyframes backgroundFlashing {
+  0% {
+    background-color: #0D100D;
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    background-color: #0D100D;
+  }
+}
+
 .marquee-content li {
   display: flex;
   justify-content: center;
@@ -464,8 +501,6 @@ p > br:nth-child(2) {
   height: 100%;
 }
 
-.project-card {
-}
 
 @media (max-width: 600px) {
   html {

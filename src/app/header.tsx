@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function Header() {
-  const [flash, setFlashed] = useState(false);
 
+  const [flash, setFlashed] = useState(false);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -12,7 +12,7 @@ export default function Header() {
       "--marquee-elements-displayed"
     );
     const marqueeContent = document.querySelector("ul.marquee-content");
-
+    
     if (marqueeContent) {
       root.style.setProperty(
         "--marquee-elements",
@@ -22,6 +22,7 @@ export default function Header() {
         marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
       }
     }
+    
   });
 
   return (
@@ -70,7 +71,7 @@ export default function Header() {
           height={966}
         />
         <Image
-          className="absolute slide-up left-[12.5625rem] bottom-0 top-[21.0625rem]"
+          className="sticky-hero absolute slide-up left-[12.5625rem] bottom-0 z-1"
           src="/heroExpert.svg"
           alt="heroexpert"
           width={620}
@@ -118,7 +119,7 @@ export default function Header() {
               />
             </button>
           </div>
-          <div className="relative grid grid-rows-2 col-start-2 col-end-3 mt-12 ml-[11.625rem] h-[266px]">
+          <div className="relative grid grid-rows-2 col-start-2 col-end-3 mt-12 ml-[11.625rem] h-[16.625rem]">
             <div className="relative grid col-start-1 col-end-1 font-manropeRegular w-[22rem]">
               <p className="header-slide-up text-[1rem] content-span">
                 Lorem ipsum dolor sit amet, consectetur
@@ -178,7 +179,7 @@ export default function Header() {
             Leading in the Business World: Our Clients
           </p>
         </div>
-        <div className="marquee my-8 h-[2.5rem] w-[10.9rem]">
+        <div className="marquee my-8">
           <ul className="marquee-content">
             <li>
               <Image src="bartha.svg" alt="" width={10.25} height={40} />
@@ -207,7 +208,7 @@ export default function Header() {
           </ul>
         </div>
       </div>
-      <div className="relative flex flex-col h-[1599px] text-white text-[18.7px]">
+      <div className="relative flex flex-col h-[1599px] text-white text-[18.7px] z-10">
         <div className="Justify-center items-center mx-auto">
           <p className="text-center text-blue-500 mt-20 text-base w-[768px]">
             Work & Project

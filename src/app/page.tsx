@@ -200,9 +200,9 @@ export default function Home() {
           height={800}
         />
       </section>
-      <section className="relative footer grid grid-rows-3 justify-items-center items-center content-center h-[72.625rem] text-white overflow-hidden w-[95%] mx-auto">
-        <div className="sticky absolute -top-[16rem] z-10 row-start-1 h-[28.375rem] w-[38.75rem]">
-          <div className="sticky-entry left-0 bottom-0 z-[10]">
+      <section className="relative footer grid grid-rows-3 justify-items-center items-center content-center h-[72.625rem] text-white overflow-hidden w-[95dvw] mx-auto">
+        <div className="sticky -top-[16rem] z-10 row-start-1 h-[28.375rem] w-[38.75rem]">
+          <div className="sticky-entry z-[10]">
             <Image
               className="absolute"
               src="/heroExpert1.svg"
@@ -213,7 +213,7 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="relative footer-head row-start-1 row-end-2 items-center flex-row justify-center w-dvh m-auto z-[11]">
+        <div className="relative footer-head row-start-1 row-end-2 items-center flex-row justify-center z-[11]">
           <div className="relative content-span overflow-hidden">
             <span>
               <p className="text-center text-blue-500 mt-20 text-base">Team</p>
@@ -240,7 +240,7 @@ export default function Home() {
           style={{ "--count": 10, "--speed": 30 } as React.CSSProperties}
           data-translate="items"
           data-direction="horizontal"
-          className="flex sticky-hero-end1 marquee-footer row-start-2 row-end-3 mt-72 h-[19.75rem] justify-center items-center gap-8 overflow-hidden z-[11]"
+          className="flex sticky-hero-end1 marquee-footer row-start-3 row-end-3 mb-72 h-[19.75rem] justify-center items-center gap-8 overflow-hidden z-[11]"
         >
           <ul className="marquee-footer-content">
             <li style={{ "--index": 0 } as React.CSSProperties}>

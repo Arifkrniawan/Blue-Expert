@@ -40,12 +40,21 @@ export default function RootLayout({
       ScrollTrigger.create({
         trigger: section,
         start: "clamp(top 17%)",
-        end: "+=500",
+        end: "+=800",
         pin: true,
         markers: true,
         pinSpacing: false,
       });
     });
+
+    // ScrollTrigger.create({
+    //   trigger: ".footer",
+    //   start: "top center",
+    //   end: "20% center",
+    //   pin: true,
+    //   markers:true,
+    //   id: "footer"
+    // })
 
     function update(time: number) {
       lenisRef.current?.lenis?.raf(time * 1000);
@@ -53,7 +62,8 @@ export default function RootLayout({
 
     gsap.ticker.add(update);
 
-    return () => gsap.ticker.remove(update);
+    return () => gsap.ticker.remove(update)
+    ScrollTrigger.getAll().forEach(t=> t.kill);
   }, []);
 
   return (

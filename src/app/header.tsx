@@ -1,10 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
+// import useScrollAnimationStore from "../state/ScrollStore";
 
 export default function Header() {
-
   const [flash, setFlashed] = useState(false);
+  const heroRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -12,7 +13,7 @@ export default function Header() {
       "--marquee-elements-displayed"
     );
     const marqueeContent = document.querySelector("ul.marquee-content");
-    
+
     if (marqueeContent) {
       root.style.setProperty(
         "--marquee-elements",
@@ -22,18 +23,20 @@ export default function Header() {
         marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
       }
     }
-    
-  });
+  }, []);
 
   return (
-    <header 
-    onMouseEnter={()=>{
-      if(!flash){
-        setFlashed(true)
-      }
-    }}
-    style={{animation: flash? "backgroundFlashing 1s ease-in-out":"none"}}
-    className={`header flex relative flex-col text-white w-[95%] mx-auto bg-[#0D100D] oveflow-hidden`}>
+    <header
+      onMouseEnter={() => {
+        if (!flash) {
+          setFlashed(true);
+        }
+      }}
+      style={{
+        animation: flash ? "backgroundFlashing 1s ease-in-out" : "none",
+      }}
+      className={`header flex relative flex-col text-white w-[95%] mx-auto bg-[#0D100D] oveflow-hidden`}
+    >
       <Image
         className="absolute border-0 left-0 h-[49.4375rem]"
         src="/vector-7.svg"
@@ -50,7 +53,7 @@ export default function Header() {
       />
       <div className="relative container mx-auto grid grid-rows-2 h-[80.87dvh] w-[80dvw] content-center item-center justify-items-center overflow-hidden">
         <Image
-          className="slide-up absolute left-0 -bottom-8"
+          className="slide-up absolute left-0 bottom-0"
           src="/studioDisplay1.svg"
           alt="studio display"
           width={398}
@@ -70,14 +73,7 @@ export default function Header() {
           width={1440}
           height={966}
         />
-        <Image
-          className="sticky-hero absolute slide-up left-[12.5625rem] bottom-0 z-1"
-          src="/heroExpert.svg"
-          alt="heroexpert"
-          width={620}
-          height={454}
-        />
-        <div className="relative grid grid-cols-2">
+        <div className="relative grid grid-cols-2 row-start-1">
           <div className="relative animation-slideup grid overflow-x-hidden grid-cols-3 grid-rows-3 col-start-1 col-end-1 mt-12 w-[43rem] h-[16.625rem]">
             <div className="relative content-span grid col-start-1 col-end-4 row-start-1 row-end-2 h-[6.5rem]">
               <span>
@@ -131,7 +127,7 @@ export default function Header() {
             </div>
             <div className="header-last-element relative grid slide-up col-start-1 col-end-1 row-start-2 row-end-2">
               <Image
-                className="absolute z-5 mt-[-0.8rem] z-4"
+                className="absolute mt-[-0.8rem] z-4"
                 src="review-photo.svg"
                 alt="testi0"
                 width={40}
@@ -172,8 +168,20 @@ export default function Header() {
             </div>
           </div>
         </div>
+        <div className="sticky w-[38.75rem] h-[28.375rem] z-[6] pointer-events-none">
+          <div className="sticky-entry z-[6]">
+            <Image
+              className="absolute"
+              src="/heroExpert.svg"
+              alt="heroexpert"
+              sizes="38.75rem"
+              fill
+              style={{ objectFit: "contain" }}
+            />
+          </div>
+        </div>
       </div>
-      <div className="relative flex left-[50%] right-[50%] h-[10.85dvh] ml-[-50dvw] mr-[-50dvw] bg-blue-400">
+      <div className="marquee-header relative flex left-[50%] right-[50%] h-[10.85dvh] ml-[-50dvw] mr-[-50dvw] bg-blue-400 z-10">
         <div className="RT1 w-64 content-center font-manropeRegular">
           <p className="my-8 w-[10.9rem] ml-8 mr-[3.75rem] h-[2.5rem] text-xs text-black leading-snug">
             Leading in the Business World: Our Clients
@@ -208,7 +216,7 @@ export default function Header() {
           </ul>
         </div>
       </div>
-      <div className="relative flex flex-col h-[1599px] text-white text-[18.7px] z-10">
+      <div className="header1 relative flex flex-col h-[1599px] text-white text-[18.7px] bg-[#0D100D] z-10 w-[95%]">
         <div className="Justify-center items-center mx-auto">
           <p className="text-center text-blue-500 mt-20 text-base w-[768px]">
             Work & Project
@@ -222,7 +230,7 @@ export default function Header() {
             pellentesque. Cras eget tellus ligula.
           </p>
         </div>
-        <div className="relative flex justify-center slider mx-auto h-[1599px]">
+        <div className="sticky-hero-end relative flex justify-center slider mx-auto h-[1599px]">
           <div className="item-slider">
             <Image
               className="active"
@@ -259,7 +267,13 @@ export default function Header() {
           </p>
 
           <a className="see-all" href="">
-            See All <Image src="/arrow-narrow-right-down.svg" alt="arrow narrow" width={26} height={26}/>
+            See All{" "}
+            <Image
+              src="/arrow-narrow-right-down.svg"
+              alt="arrow narrow"
+              width={26}
+              height={26}
+            />
           </a>
         </div>
       </div>

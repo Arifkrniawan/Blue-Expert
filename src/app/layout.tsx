@@ -3,17 +3,23 @@
 import { Inter } from "next/font/google";
 import { ReactLenis } from "lenis/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import { useEffect, useRef } from "react";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import "./globals.css";
 import Navbar from "./navbar";
 import Header from "./header";
+import { transform } from "next/dist/build/swc";
 
 const inter = Inter({ subsets: ["latin"] });
 
 type LenisInstanceType = {
   lenis: any;
 };
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
+}
 
 export default function RootLayout({
   children,
@@ -22,17 +28,23 @@ export default function RootLayout({
 }) {
   const lenisRef = useRef<LenisInstanceType>(null);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+  useGSAP(() => {
+    let sections = gsap.utils.toArray<HTMLElement>(".sticky");
 
-    ScrollTrigger.create({
-      trigger: ".sticky-hero",
-      start: "top 10%",
-      endTrigger: ".sticky-hero-end",
-      end: "bottom 90%",
-      pin: true,
-      scrub: true,
-      markers: true,
+    gsap.from(
+      ".sticky-entry",
+      { yPercent: 50, opacity: 0 }
+    );
+
+    sections.forEach((section) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "clamp(top 17%)",
+        end: "+=500",
+        pin: true,
+        markers: true,
+        pinSpacing: false,
+      });
     });
 
     function update(time: number) {

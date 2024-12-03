@@ -1,14 +1,14 @@
 "use client";
+// import useScrollAnimationStore from "../state/ScrollStore";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import React from "react";
 
-
-
 export default function Home() {
+  const triggerRef = useRef<HTMLDivElement>(null);
+  // const setTriggerRef = useScrollAnimationStore((state)=> state.setTriggerRef)
 
   useEffect(() => {
-
     let currentSlide = 0;
     const slides = document.querySelectorAll(".item-slider img");
     const totalSlides = slides.length - 1;
@@ -28,11 +28,11 @@ export default function Home() {
       }
     }
     setInterval(showNextSlide, 3000);
-  });
+  }, []);
 
   return (
     <main className="relative flex flex-col bg-inherit">
-      <section className="grid grid-row-2 h-screen bg-white">
+      <section className="grid grid-row-2 h-screen bg-white z-10">
         <div className="row-start-1 row-end-1 flex flex-col justify-center items-center m-auto mt-0 col-start-1">
           <p className="text-center text-blue-500 mt-20 text-base">Feature</p>
           <h2 className="text-center text-[3.5rem] font-bold font-lota mb-5">
@@ -200,9 +200,20 @@ export default function Home() {
           height={800}
         />
       </section>
-
-      <section className="relative footer grid grid-rows-3 h-[72.625rem] text-white overflow-hidden w-[95%] mx-auto bg-[#ffff]">
-        <div className="relative footer-head row-start-1 row-end-2 items-center flex-row justify-center w-dvh m-auto z-[2]">
+      <section className="relative footer grid grid-rows-3 justify-items-center items-center content-center h-[72.625rem] text-white overflow-hidden w-[95%] mx-auto">
+        <div className="sticky absolute -top-[16rem] z-10 row-start-1 h-[28.375rem] w-[38.75rem]">
+          <div className="sticky-entry left-0 bottom-0 z-[10]">
+            <Image
+              className="absolute"
+              src="/heroExpert1.svg"
+              alt="heroexpert1"
+              sizes="38.75rem"
+              fill
+              style={{ objectFit: "contain" }}
+            />
+          </div>
+        </div>
+        <div className="relative footer-head row-start-1 row-end-2 items-center flex-row justify-center w-dvh m-auto z-[11]">
           <div className="relative content-span overflow-hidden">
             <span>
               <p className="text-center text-blue-500 mt-20 text-base">Team</p>
@@ -225,9 +236,14 @@ export default function Home() {
             </span>
           </div>
         </div>
-        <div style={{"--count":10, "--speed":30} as React.CSSProperties} data-translate="items" data-direction="horizontal" className="flex marquee-footer row-start-2 row-end-3 mt-72 h-[19.75rem] justify-center items-center gap-8 overflow-hidden">
+        <div
+          style={{ "--count": 10, "--speed": 30 } as React.CSSProperties}
+          data-translate="items"
+          data-direction="horizontal"
+          className="flex sticky-hero-end1 marquee-footer row-start-2 row-end-3 mt-72 h-[19.75rem] justify-center items-center gap-8 overflow-hidden z-[11]"
+        >
           <ul className="marquee-footer-content">
-            <li style={{"--index":0} as React.CSSProperties}>
+            <li style={{ "--index": 0 } as React.CSSProperties}>
               <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
                 <div className="flex flex-col items-center justify-center">
                   <Image
@@ -270,7 +286,7 @@ export default function Home() {
                 </div>
               </div>
             </li>
-            <li style={{"--index":1} as React.CSSProperties}>
+            <li style={{ "--index": 1 } as React.CSSProperties}>
               <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
                 <div className="flex flex-col items-center justify-center">
                   <Image
@@ -313,7 +329,7 @@ export default function Home() {
                 </div>
               </div>
             </li>
-            <li style={{"--index":2} as React.CSSProperties}>
+            <li style={{ "--index": 2 } as React.CSSProperties}>
               <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
                 <div className="flex flex-col items-center justify-center">
                   <Image
@@ -356,7 +372,7 @@ export default function Home() {
                 </div>
               </div>
             </li>
-            <li style={{"--index":3} as React.CSSProperties}>
+            <li style={{ "--index": 3 } as React.CSSProperties}>
               <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
                 <div className="flex flex-col items-center justify-center">
                   <Image
@@ -399,7 +415,7 @@ export default function Home() {
                 </div>
               </div>
             </li>
-            <li style={{"--index":4} as React.CSSProperties}>
+            <li style={{ "--index": 4 } as React.CSSProperties}>
               <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
                 <div className="flex flex-col items-center justify-center">
                   <Image
@@ -442,7 +458,7 @@ export default function Home() {
                 </div>
               </div>
             </li>
-            <li style={{"--index":5} as React.CSSProperties}>
+            <li style={{ "--index": 5 } as React.CSSProperties}>
               <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
                 <div className="flex flex-col items-center justify-center">
                   <Image
@@ -485,7 +501,7 @@ export default function Home() {
                 </div>
               </div>
             </li>
-            <li style={{"--index":6} as React.CSSProperties}>
+            <li style={{ "--index": 6 } as React.CSSProperties}>
               <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
                 <div className="flex flex-col items-center justify-center">
                   <Image
@@ -528,7 +544,7 @@ export default function Home() {
                 </div>
               </div>
             </li>
-            <li style={{"--index":7} as React.CSSProperties}>
+            <li style={{ "--index": 7 } as React.CSSProperties}>
               <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
                 <div className="flex flex-col items-center justify-center">
                   <Image
@@ -571,7 +587,7 @@ export default function Home() {
                 </div>
               </div>
             </li>
-            <li style={{"--index":8} as React.CSSProperties}>
+            <li style={{ "--index": 8 } as React.CSSProperties}>
               <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
                 <div className="flex flex-col items-center justify-center">
                   <Image
@@ -614,9 +630,12 @@ export default function Home() {
                 </div>
               </div>
             </li>
-            <li style={{"--index":9} as React.CSSProperties}>
+            <li style={{ "--index": 9 } as React.CSSProperties}>
               <div className="flex flex-col flex-start rounded-[1.25rem] h-[19.75rem] w-[17.5rem] p-6 card">
-                <div className="flex flex-col sticky-hero-end items-center justify-center">
+                <div
+                  ref={triggerRef}
+                  className="flex flex-col sticky-hero1-end items-center justify-center"
+                >
                   <Image
                     className="mb-5"
                     src="/Arif.svg"

@@ -31,10 +31,16 @@ export default function RootLayout({
   useGSAP(() => {
     let sections = gsap.utils.toArray<HTMLElement>(".sticky");
 
-    gsap.from(
-      ".sticky-entry",
-      { yPercent: 50, opacity: 0 }
-    );
+      let tl = gsap.timeline();
+
+      tl.fromTo(
+        ".sticky-entry",
+        { yPercent: 50, opacity: 0} ,
+        { yPercent: 0, opacity: 1, duration: 1}
+      )
+      tl.fromTo(".slide-up-50", {yPercent: 50, opacity: 0}, {yPercent: 0, opacity: 1, duration:1, ease: "power2.out"},"<")
+      tl.fromTo(".slide-up-100", {yPercent: 100, opacity: 0}, {yPercent: 0, opacity: 1, duration:1, ease: "power2.out"},"<")
+
 
     sections.forEach((section) => {
       ScrollTrigger.create({
@@ -44,6 +50,7 @@ export default function RootLayout({
         pin: true,
         markers: true,
         pinSpacing: false,
+        immediateRender:false,
       });
     });
 

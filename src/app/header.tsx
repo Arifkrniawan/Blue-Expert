@@ -1,28 +1,222 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { Observer } from "gsap/Observer";
 // import useScrollAnimationStore from "../state/ScrollStore";
 
 export default function Header() {
   const [flash, setFlashed] = useState(false);
   const heroRef = useRef<HTMLImageElement>(null);
 
-  useEffect(() => {
-    const root = document.documentElement;
-    const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue(
-      "--marquee-elements-displayed"
-    );
-    const marqueeContent = document.querySelector("ul.marquee-content");
+  useGSAP(() => {
+    gsap.registerPlugin(Observer);
 
-    if (marqueeContent) {
-      root.style.setProperty(
-        "--marquee-elements",
-        String(marqueeContent.children.length)
-      );
-      for (let i = 0; i < Number(marqueeElementsDisplayed); i++) {
-        marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
-      }
+    interface HorizontalLoopConfig {
+      repeat?: number;
+      paused?: boolean;
+      speed?: number;
+      snap?: number | boolean;
+      paddingRight?: number;
+      reversed?: boolean;
     }
+
+    interface EnhancedTimeline extends gsap.core.Timeline {
+      next: (vars?: gsap.TweenVars) => gsap.core.Tween;
+      previous: (vars?: gsap.TweenVars) => gsap.core.Tween;
+      current: () => number;
+      toIndex: (index: number, vars?: gsap.TweenVars) => gsap.core.Tween;
+      times: number[];
+    }
+
+    function horizontalLoop(
+      items: HTMLElement[],
+      config: HorizontalLoopConfig = {}
+    ): EnhancedTimeline {
+      // Convert items to array and ensure config exists
+      items = gsap.utils.toArray(items);
+
+      // Default config
+      const defaultConfig: HorizontalLoopConfig = {
+        repeat: 0,
+        paused: false,
+        speed: 1,
+        snap: 1,
+      };
+      config = { ...defaultConfig, ...config };
+
+      // Create timeline with enhanced typing
+      const tl = gsap.timeline({
+        repeat: config.repeat,
+        paused: config.paused,
+        defaults: { ease: "none" },
+        onReverseComplete: () => {
+          (tl as EnhancedTimeline).totalTime(
+            tl.rawTime() + tl.duration() * 100
+          );
+        },
+      }) as EnhancedTimeline;
+
+      const length = items.length;
+      const startX = items[0].offsetLeft;
+      const times: number[] = [];
+      const widths: number[] = [];
+      const xPercents: number[] = [];
+      let curIndex = 0;
+
+      // Calculate pixels per second
+      const pixelsPerSecond = (config.speed || 1) * 100;
+
+      // Snap function
+      const snap =
+        config.snap === false
+          ? (v: number) => v
+          : gsap.utils.snap(typeof config.snap === "number" ? config.snap : 0);
+
+      // Declare variables
+      let totalWidth: number;
+      let curX: number;
+      let distanceToStart: number;
+      let distanceToLoop: number;
+      let item: HTMLElement;
+
+      // Set initial xPercent for responsive layout
+      gsap.set(items, {
+        xPercent: (i, el) => {
+          const w = (widths[i] = parseFloat(
+            gsap.getProperty(el, "width", "px") as string
+          ));
+          xPercents[i] = snap(
+            (parseFloat(gsap.getProperty(el, "x", "px") as string) / w) * 100 +
+              parseFloat(gsap.getProperty(el, "xPercent") as string)
+          );
+          return xPercents[i];
+        },
+      });
+
+      // Reset x position
+      gsap.set(items, { x: 0 });
+
+      const paddingRight =
+        config.paddingRight !== undefined
+          ? parseFloat(config.paddingRight.toString())
+          : 0;
+
+      // Calculate total width
+      totalWidth =
+        items[length - 1].offsetLeft +
+        (xPercents[length - 1] / 100) * widths[length - 1] -
+        startX +
+        items[length - 1].offsetWidth *
+          parseFloat(gsap.getProperty(items[length - 1], "scaleX") as string) +
+        paddingRight;
+
+      // Create animations for each item
+      for (let i = 0; i < length; i++) {
+        item = items[i];
+        curX = (xPercents[i] / 100) * widths[i];
+        distanceToStart = item.offsetLeft + curX - startX;
+        distanceToLoop =
+          distanceToStart +
+          widths[i] * parseFloat(gsap.getProperty(item, "scaleX") as string);
+
+        tl.to(
+          item,
+          {
+            xPercent: snap(((curX - distanceToLoop) / widths[i]) * 100),
+            duration: distanceToLoop / pixelsPerSecond,
+          },
+          0
+        )
+          .fromTo(
+            item,
+            {
+              xPercent: snap(
+                ((curX - distanceToLoop + totalWidth) / widths[i]) * 100
+              ),
+            },
+            {
+              xPercent: xPercents[i],
+              duration:
+                (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond,
+              immediateRender: false,
+            },
+            distanceToLoop / pixelsPerSecond
+          )
+          .add(`label${i}`, distanceToStart / pixelsPerSecond);
+
+        times[i] = distanceToStart / pixelsPerSecond;
+      }
+
+      // Helper function to move to a specific index
+      function toIndex(
+        index: number,
+        vars: gsap.TweenVars = {}
+      ): gsap.core.Tween {
+        // Ensure shortest path
+        Math.abs(index - curIndex) > length / 2 &&
+          (index += index > curIndex ? -length : length);
+
+        const newIndex = gsap.utils.wrap(0, length, index);
+        let time = times[newIndex];
+
+        // Handle timeline wrapping
+        if (time > tl.time() !== index > curIndex) {
+          vars.modifiers = {
+            time: gsap.utils.wrap(0, tl.duration()),
+          };
+          time += tl.duration() * (index > curIndex ? 1 : -1);
+        }
+
+        curIndex = newIndex;
+        vars.overwrite = true;
+        return tl.tweenTo(time, vars);
+      }
+
+      // Extend timeline with custom methods
+      tl.next = (vars) => toIndex(curIndex + 1, vars);
+      tl.previous = (vars) => toIndex(curIndex - 1, vars);
+      tl.current = () => curIndex;
+      tl.toIndex = (index, vars) => toIndex(index, vars);
+      tl.times = times;
+
+      // Pre-render for performance
+      tl.progress(1, true).progress(0, true);
+
+      // Handle reversed config
+      if (config.reversed && tl.vars?.onReverseComplete) {
+        tl.vars.onReverseComplete();
+        tl.reverse();
+      }
+
+      return tl;
+    }
+
+    // Usage example
+    const scrollingText = gsap.utils.toArray(
+      ".marquee-content li"
+    ) as HTMLElement[];
+
+    const tl = horizontalLoop(scrollingText, {
+      repeat: -1,
+    });
+
+    // const root = document.documentElement;
+    // const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue(
+    //   "--marquee-elements-displayed"
+    // );
+    // const marqueeContent = document.querySelector("ul.marquee-content");
+
+    // if (marqueeContent) {
+    //   root.style.setProperty(
+    //     "--marquee-elements",
+    //     String(marqueeContent.children.length)
+    //   );
+    //   for (let i = 0; i < Number(marqueeElementsDisplayed); i++) {
+    //     marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
+    //   }
+    // }
   }, []);
 
   return (
@@ -53,32 +247,32 @@ export default function Header() {
       />
       <div className="relative container mx-auto grid grid-rows-2 h-[80.87dvh] w-[80dvw] content-center item-center justify-items-center overflow-hidden">
         <Image
-          className="slide-up absolute left-0 bottom-0"
+          className="slide-up-50 absolute left-0 bottom-0"
           src="/studioDisplay1.svg"
           alt="studio display"
           width={398}
           height={424}
         />
         <Image
-          className="absolute slide-up top-[18.625rem] right-0"
+          className="absolute slide-up-50 top-[18.625rem] right-0"
           src="/studioDisplay2.svg"
           alt="studio Display"
           width={752}
           height={578}
         />
         <Image
-          className="absolute slide-up -bottom-80"
+          className="absolute slide-up-50 -bottom-80"
           src="/hero-ellipse-bg.svg"
           alt="ellipse-bg"
           width={1440}
           height={966}
         />
         <div className="relative grid grid-cols-2 row-start-1">
-          <div className="relative animation-slideup grid overflow-x-hidden grid-cols-3 grid-rows-3 col-start-1 col-end-1 mt-12 w-[43rem] h-[16.625rem]">
+          <div className="relative animation-slideup grid overflow-hidden grid-cols-3 grid-rows-3 col-start-1 col-end-1 mt-12 w-[43rem] h-[16.625rem]">
             <div className="relative content-span grid col-start-1 col-end-4 row-start-1 row-end-2 h-[6.5rem]">
-              <span>
+              <span className="flex slide-up-100">
                 <Image
-                  className="absolute w-[48px] h-[4.75rem] ml-[1.6875rem]"
+                  className="mr-4 relative w-[48px] h-[4.75rem] ml-[1.6875rem]"
                   src="/logosemut.svg"
                   alt="logo"
                   width={180}
@@ -88,7 +282,7 @@ export default function Header() {
                   <b>Create</b> websites
                 </h1>
                 <Image
-                  className="ml-16 mt-[-1rem] splash"
+                  className="absolute ml-16 mt-20 splash"
                   src="/imageslash.svg"
                   alt="img"
                   width={262.636}
@@ -98,14 +292,14 @@ export default function Header() {
             </div>
 
             <div className="content-span grid col-start-1 col-end-4 row-start-2 row-end-2">
-              <span>
+              <span className="slide-up-100">
                 <h1 className="font-lota text-7xl tracking-custom">
                   with less work
                 </h1>
               </span>
             </div>
 
-            <button className="slide-up button self-end py-4 px-8 col-start-1 col-end-2 w-[232px] h-[56px] row-start-3 row-end-3 font-beeboMedium">
+            <button className="slide-up-50 button self-end py-4 px-8 col-start-1 col-end-2 w-[232px] h-[56px] row-start-3 row-end-3 font-beeboMedium">
               Explore BlueXpert
               <Image
                 src="/link-button.svg"
@@ -117,15 +311,15 @@ export default function Header() {
           </div>
           <div className="relative grid grid-rows-2 col-start-2 col-end-3 mt-12 ml-[11.625rem] h-[16.625rem]">
             <div className="relative grid col-start-1 col-end-1 font-manropeRegular w-[22rem]">
-              <p className="header-slide-up text-[1rem] content-span">
+              <p className="slide-up-100 text-[1rem] content-span">
                 Lorem ipsum dolor sit amet, consectetur
-                <br className="header-slide-up content-span" />
+                <br className="slide-up-100 content-span" />
                 Quisque malesuada ipsum nulla.
-                <br className="header-slide-up content-span" />
+                <br className="slide-up-100 content-span" />
                 Vestibulum ante ipsum primis in faucibus
               </p>
             </div>
-            <div className="header-last-element relative grid slide-up col-start-1 col-end-1 row-start-2 row-end-2">
+            <div className="header-last-element relative grid slide-up-50 slideUp col-start-1 col-end-1 row-start-2 row-end-2">
               <Image
                 className="absolute mt-[-0.8rem] z-4"
                 src="review-photo.svg"

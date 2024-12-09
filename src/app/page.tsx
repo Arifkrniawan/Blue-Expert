@@ -202,7 +202,7 @@ export default function Home() {
       </section>
       <section className="relative footer grid grid-rows-3 justify-items-center items-center content-center h-[72.625rem] text-white overflow-hidden w-[95dvw] mx-auto">
         <div className="sticky -top-[16rem] z-10 row-start-1 h-[28.375rem] w-[38.75rem]">
-          <div className="sticky-entry z-[10]">
+          <div className="sticky-entry1 z-[11]">
             <Image
               className="absolute"
               src="/heroExpert1.svg"

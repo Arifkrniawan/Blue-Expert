@@ -97,6 +97,7 @@ html.lenis, html.lenis body {
   position: absolute;
   width: 100%;
   height: 100%;
+  opacity: 0;
 }
 
 /* header */
@@ -108,22 +109,22 @@ html.lenis, html.lenis body {
   transition: all 1s ease-in-out;
 }
 
-.header:hover,
+/* .header:hover,
 .header:hover .header1 {
   width: 100dvw;
   border-bottom-left-radius: 0rem;
   border-bottom-right-radius: 0rem;
   margin-left: calc(-50dvw +50%);
   margin-right: calc(-50dvw +50%);
-}
+} */
 
 .header:hover .header-hovered {
-  animation: backgroundFlashing 1s ease;
+  /* animation: backgroundFlashing 1s ease; */
 }
 
-.header:hover > img {
+/* .header:hover > img {
   opacity: 0;
-}
+} */
 
 .header-last-element > .arrow,
 .header-last-element > h3 {
@@ -131,10 +132,10 @@ html.lenis, html.lenis body {
   transition: opacity 1s ease-in-out;
 }
 
-.header:hover .header-last-element > .arrow,
+/* .header:hover .header-last-element > .arrow,
 .header:hover .header-last-element > h3 {
   opacity: 0;
-}
+} */
 
 .footer {
   border-top-left-radius: 4rem;
@@ -169,22 +170,22 @@ html.lenis, html.lenis body {
   z-index: 10;
 }
 
-.footer:hover {
+/* .footer:hover {
   width: 100dvw;
   border-top-left-radius: 0rem;
   border-top-right-radius: 0rem;
-}
+} */
 
-/* .footer:hover .marquee-footer-content{
+/* /* .footer:hover .marquee-footer-content{
   animation: 
   scrolling-footer-card-2x 1s linear,
   scrolling-footer-card step-start var(--marquee-animation-footer-duration) infinite;
-}
+} */
 
-.footer:hover .marquee-footer-content{
+/* .footer:hover .marquee-footer-content{
   animation: 
   scrolling-footer-card linear var(--marquee-animation-footer-duration) infinite;
-} */
+} */ */
 
 .firstTitle {
   padding-left: 15%;
@@ -213,23 +214,15 @@ html.lenis, html.lenis body {
   clip-path: inset(0 0 0 0);
 }
 
-.animation-slideup div > span {
-  display: inline-block;
-  transform: translateY(100%);
-  animation: slideUp1 2s ease-in-out forwards;
-  pointer-events: none;
-}
-
-.header-slide-up {
-  transform: translateY(100%);
-  animation: slideUp1 2s ease-in-out forwards;
+.slide-up-100 {
+  opacity: 0;
 }
 
 .header-slide-up.content-span {
   position: absolute;
   top: -4rem;
   clip-path: inset(0 0 100% 0);
-  animation: revealTopDown 2s ease-out forwards;
+  /* animation: revealTopDown 2s ease-out forwards; */
 }
 
 .transition-transformY {
@@ -238,11 +231,11 @@ html.lenis, html.lenis body {
 }
 
 p > br {
-  animation-delay: 0.5s;
+  /* animation-delay: 0.5s; */
 }
 
 p > br:nth-child(2) {
-  animation-delay: 1s;
+  /* animation-delay: 1s; */
 }
 
 .slider {
@@ -289,9 +282,8 @@ p > br:nth-child(2) {
   box-shadow: rgba(0, 0, 0, 0.38) 0px -120px 36px -28px inset;
 }
 
-.slide-up {
-  transform: translateY(50%);
-  animation: slideUp 2s ease-in-out forwards;
+.slide-up-50 {
+  opacity: 0;
 }
 
 
@@ -307,7 +299,7 @@ p > br:nth-child(2) {
   list-style: none;
   height: 100%;
   display: flex;
-  animation: scrolling linear var(--marquee-animation-duration) infinite;
+  /* animation: scrolling linear var(--marquee-animation-duration) infinite; */
 }
 
 
@@ -349,25 +341,25 @@ p > br:nth-child(2) {
   transition: transform var(--def-transition-duration) ease-in-out;
 }
 
-.product-card:hover {
+/* .product-card:hover {
   transform: translateY(-2rem);
   box-shadow: #fc4cda -8px 56px 128px -56px;
-}
+} */
 
-.product-card:nth-child(2):hover {
+/* .product-card:nth-child(2):hover {
   transform: translateY(-2rem);
   box-shadow: #3613fa 0px 56px 128px -56px;
-}
+} */
 
 .product-card:nth-child(3):hover {
   transform: translateY(-2rem);
   box-shadow: #46b1ff 0px 78px 128px -56px;
 }
 
-.product-card:nth-last-child(1):hover {
+/* .product-card:nth-last-child(1):hover {
   transform: translateY(-2rem);
   box-shadow: #46b1ff 16px 56px 128px -56px;
-}
+} */
 
 .web-card {
   border-radius: 18.621px;
@@ -388,24 +380,24 @@ p > br:nth-child(2) {
     background-color var(--def-transition-duration) ease-in-out;
 }
 
-.product-card:hover .web-card {
+/* .product-card:hover .web-card {
   background: #83036a;
   transform: translateY(-1.5rem);
-}
+} */
 
-.product-card:hover .web-card-bg > img,
+/* .product-card:hover .web-card-bg > img,
 .product-card:hover .cms-card-bg > img,
 .product-card:hover .mobile-card-bg > img,
 .product-card:hover .design-card-bg > img {
   transform: translateY(-1.5rem);
-}
+} */
 
-.product-card:hover .web-card-bg,
+/* .product-card:hover .web-card-bg,
 .product-card:hover .cms-card-bg,
 .product-card:hover .mobile-card-bg,
 .product-card:hover .design-card-bg {
   opacity: 1;
-}
+} */
 
 .cms-card {
   border-radius: 18.621px;
@@ -426,10 +418,10 @@ p > br:nth-child(2) {
     background-color var(--def-transition-duration) ease-in-out;
 }
 
-.product-card:hover .cms-card {
+/* .product-card:hover .cms-card {
   background: #16018d;
   transform: translateY(-1.5rem);
-}
+} */
 
 .mobile-card {
   border-radius: 18.621px;
@@ -450,10 +442,10 @@ p > br:nth-child(2) {
     background-color var(--def-transition-duration) ease-in-out;
 }
 
-.product-card:hover .mobile-card {
+/* .product-card:hover .mobile-card {
   background: #027777;
   transform: translateY(-1.5rem);
-}
+} */
 
 .design-card {
   border-radius: 18.621px;
@@ -474,10 +466,10 @@ p > br:nth-child(2) {
     background-color var(--def-transition-duration) ease-in-out;
 }
 
-.product-card:hover .design-card {
+/* .product-card:hover .design-card {
   background: #005c9f;
   transform: translateY(-1.5rem);
-}
+} */
 
 /*footer*/
 
@@ -487,9 +479,9 @@ p > br:nth-child(2) {
   display: block;
 }
 
-.footer:hover .footer-head .content-span > span {
+/* .footer:hover .footer-head .content-span > span {
   transform: translateY(0);
-}
+} */
 
 .marquee-footer{
   left:0;
@@ -533,10 +525,10 @@ p > br:nth-child(2) {
   }
 
   .footer:hover [data-translate="items"] li {
-    animation: 
+    /* animation: 
     scrolling-footer-card var(--duration)
     calc(var(--delay) - (var(--count) * 0.5s)) infinite linear;
-    translate: var(--origin-x);
+    translate: var(--origin-x); */
   }
 
   @keyframes scrolling-footer-card {
@@ -570,14 +562,14 @@ p > br:nth-child(2) {
   }
 }
 
-@keyframes slideUp1 {
+/* @keyframes slideUp1 {
   0% {
     transform: translateY(100%);
   }
   100% {
     transform: translateY(0);
   }
-}
+} */
 
 @keyframes revealTopDown {
   0% {

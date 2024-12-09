@@ -201,22 +201,6 @@ export default function Header() {
     const tl = horizontalLoop(scrollingText, {
       repeat: -1,
     });
-
-    // const root = document.documentElement;
-    // const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue(
-    //   "--marquee-elements-displayed"
-    // );
-    // const marqueeContent = document.querySelector("ul.marquee-content");
-
-    // if (marqueeContent) {
-    //   root.style.setProperty(
-    //     "--marquee-elements",
-    //     String(marqueeContent.children.length)
-    //   );
-    //   for (let i = 0; i < Number(marqueeElementsDisplayed); i++) {
-    //     marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
-    //   }
-    // }
   }, []);
 
   return (

@@ -45,8 +45,8 @@ export default function RootLayout({
     sections.forEach((section) => {
       ScrollTrigger.create({
         trigger: section,
-        start: "clamp(top 17%)",
-        end: "+=800",
+        start: "top 17%",
+        end: "+=670",
         pin: true,
         markers: true,
         pinSpacing: false,

@@ -193,7 +193,7 @@ export default function Header() {
       return tl;
     }
 
-    // Usage example
+    // 
     const scrollingText = gsap.utils.toArray(
       ".marquee-content li"
     ) as HTMLElement[];
@@ -201,6 +201,37 @@ export default function Header() {
     const tl = horizontalLoop(scrollingText, {
       repeat: -1,
     });
+
+    const headerOnEnter = document.querySelector('.header');
+    const headerOnEnterImg = document.querySelectorAll('.header .header-shadow');
+    
+    const tl1 = gsap.timeline({
+      paused: true,
+    })
+
+    tl1.fromTo(headerOnEnter, {
+      width: '95%',
+      borderBottomLeftRadius: '4rem',
+      borderBottomRightRadius: '4rem',
+    }, {
+      width: '100%',
+      borderBottomLeftRadius: 0,
+      borderBottomRightRadius: 0,
+      duration: 1,
+      ease: 'power2.inOut'
+    });
+
+    tl1.to(headerOnEnterImg, {
+      opacity: 0,
+    },'<')
+
+    headerOnEnter?.addEventListener('mouseenter', ()=>{
+      tl1.play();
+    })
+
+    headerOnEnter?.addEventListener('mouseleave', ()=>{
+      tl1.reverse();
+    })
   }, []);
 
   return (
@@ -216,14 +247,14 @@ export default function Header() {
       className={`header flex relative flex-col text-white w-[95%] mx-auto bg-[#0D100D] oveflow-hidden`}
     >
       <Image
-        className="absolute border-0 left-0 h-[49.4375rem]"
+        className="header-shadow absolute border-0 left-0 h-[49.4375rem]"
         src="/vector-7.svg"
         alt="vector7"
         width={640}
         height={787}
       />
       <Image
-        className="absolute border-0 right-0 top-18 h-[49.4375rem]"
+        className="header-shadow absolute border-0 right-0 top-18 h-[49.4375rem]"
         src="/vector-6.svg"
         alt="vector6"
         width={640}
@@ -346,8 +377,8 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <div className="sticky w-[38.75rem] h-[28.375rem] z-[6] pointer-events-none">
-          <div className="sticky-entry z-[6]">
+        <div className="sticky w-[38.75rem] h-[28.375rem] z-[10] pointer-events-none">
+          <div className="sticky-entry z-[10]">
             <Image
               className="absolute"
               src="/heroExpert.svg"
@@ -394,9 +425,9 @@ export default function Header() {
           </ul>
         </div>
       </div>
-      <div className="header1 relative flex flex-col h-[1599px] text-white text-[18.7px] bg-[#0D100D] z-10 w-[95%]">
-        <div className="Justify-center items-center mx-auto">
-          <p className="text-center text-blue-500 mt-20 text-base w-[768px]">
+      <div className="header1 relative flex flex-col text-white text-[18.7px] self-center justify-center items-center bg-[#0D100D] z-10 w-full">
+        <div className="Justify-center items-center mx-auto mt-20">
+          <p className="text-center text-blue-500 text-base w-[768px]">
             Work & Project
           </p>
           <h2 className="text-center mt-3 text-[56px] font-bold w-[768px]">
@@ -408,7 +439,7 @@ export default function Header() {
             pellentesque. Cras eget tellus ligula.
           </p>
         </div>
-        <div className="sticky-hero-end relative flex justify-center slider mx-auto h-[1599px]">
+        <div className="sticky-hero-end relative flex justify-center self-center slider h-[1599px]">
           <div className="item-slider">
             <Image
               className="active"
@@ -437,7 +468,7 @@ export default function Header() {
             />
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center mt-20 gap-y-5">
+        <div className="flex flex-col justify-center items-center mt-20 gap-y-5 mb-40">
           <p className="text-center">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
             dignissim a leo nec vulputate. <br />

@@ -260,7 +260,7 @@ export default function Header() {
         width={640}
         height={791}
       />
-      <div className="relative container mx-auto grid grid-rows-2 h-[80.87dvh] w-[80dvw] content-center item-center justify-items-center overflow-hidden">
+      <div className="relative container mx-auto grid grid-rows-2 h-[80.87dvh] w-[80dvw] item-center justify-items-center overflow-hidden">
         <Image
           className="slide-up-50 absolute left-0 bottom-0"
           src="/studioDisplay1.svg"
@@ -377,8 +377,8 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <div className="sticky w-[38.75rem] h-[28.375rem] z-[10] pointer-events-none">
-          <div className="sticky-entry z-[10]">
+        <div className="sticky w-[38.75rem] h-[28.375rem] z-[100] pointer-events-none">
+          <div className="sticky-entry z-[100]">
             <Image
               className="absolute"
               src="/heroExpert.svg"

@@ -465,9 +465,9 @@ export default function Home() {
           height={800}
         />
       </section>
-      <section className="relative footer flex flex-col justify-center items-center text-white overflow-hidden w-[95%] mx-auto">
+      <section className="relative footer flex flex-col p-0 justify-center text-white overflow-hidden w-[95dvw] mx-auto">
         <div className="sticky -top-[16rem] z-10 row-start-1 h-[28.375rem] w-[38.75rem]">
-          <div className="sticky-entry1 z-[11]">
+          <div className="sticky-entry z-[11]">
             <Image
               className="absolute"
               src="/heroExpert1.svg"

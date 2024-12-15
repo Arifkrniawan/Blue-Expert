@@ -93,7 +93,6 @@ html.lenis, html.lenis body {
   z-index: 100;
 }
 
-
 .sticky-entry{
   position: absolute;
   width: 100%;
@@ -291,7 +290,7 @@ p > br:nth-child(2) {
 }
 
 .slide-up-50 {
-  opacity: 0;
+  opacity: 1;
 }
 
 

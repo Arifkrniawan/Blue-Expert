@@ -50,7 +50,6 @@ export default function RootLayout({
         pin: true,
         markers: true,
         pinSpacing: false,
-        immediateRender:false,
       });
     });
 

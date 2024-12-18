@@ -209,7 +209,6 @@ export default function Home() {
     const scrollingText = gsap.utils.toArray(
       ".marquee-footer-content li"
     ) as HTMLElement[];
-    
 
     // const footerElements = Array.from(footerOnEnter);
 
@@ -244,7 +243,7 @@ export default function Home() {
       repeat: -1,
       ease: "power2.inOut",
       speed: 1,
-    })
+    });
 
     const tl2 = horizontalLoop(scrollingText, {
       speed: 0.3,
@@ -259,7 +258,7 @@ export default function Home() {
     footerOnEnter?.addEventListener("mouseenter", () => {
       tl1.play();
       tl.play();
-      tl2.play()
+      tl2.play();
     });
 
     footerOnEnter?.addEventListener("mouseleave", () => {
@@ -296,7 +295,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative flex flex-col bg-inherit">
+    <main className="relative flex flex-col bg-inherit mx-auto overflow-hidden">
       <section className="relative grid grid-row-2 bg-white z-10 justify-center w-full">
         <div className="row-start-1 row-end-1 flex flex-col justify-center items-center mt-[7.5rem] mx-auto">
           <p className="text-center text-blue-500 text-base">Services</p>
@@ -465,479 +464,481 @@ export default function Home() {
           height={800}
         />
       </section>
-      <section className="relative footer flex flex-col p-0 justify-center text-white overflow-hidden w-[95dvw] mx-auto">
-        <div className="sticky -top-[16rem] z-10 row-start-1 h-[28.375rem] w-[38.75rem]">
-          <div className="sticky-entry z-[11]">
-            <Image
-              className="absolute"
-              src="/heroExpert1.svg"
-              alt="heroexpert1"
-              sizes="38.75rem"
-              fill
-              style={{ objectFit: "contain" }}
-            />
+      <section className="footer relative flex flex-col text-white w-[95%] mx-auto overflow-hidden">
+        <div className="relative mx-auto grid grid-rows-1 grid-cols-1 items-center justify-items-center w-[90dvw]">
+          <div className="sticky -top-[16rem] w-[38.75rem] h-[28.375rem] col-start-1 col-end-1 z-[7]">
+            <div className="sticky-entry z-[7]">
+              <Image
+                className="absolute"
+                src="/heroExpert1.svg"
+                alt="heroexpert1"
+                sizes="38.75rem"
+                fill
+                style={{ objectFit: "contain" }}
+              />
+            </div>
           </div>
-        </div>
-        <div className="relative flex flex-col footer-head items-center justify-center w-full mt-36 z-[11]">
-          <div className="relative content-span overflow-hidden">
-            <span>
-              <p className="text-center text-blue-500 text-base">Team</p>
-            </span>
+          <div className="relative flex flex-col footer-head items-center justify-center w-[100%] mt-36 z-[11]">
+            <div className="relative content-span overflow-hidden">
+              <span>
+                <p className="text-center text-blue-500 text-base">Team</p>
+              </span>
+            </div>
+            <div className="relative content-span mt-3 overflow-hidden">
+              <span>
+                <h2 className="text-center text-[3.5rem] font-bold w-[48rem]">
+                  Meet Out Team
+                </h2>
+              </span>
+            </div>
+            <div className="relative content-span mt-5 overflow-hidden">
+              <span>
+                <p className="flex items-center justify-center w-[48rem] text-center text-lg">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Vivamus a lorem id justo mollis congue. Proin malesuada at ex
+                  vel pellentesque. Cras eget tellus ligula.
+                </p>
+              </span>
+            </div>
           </div>
-          <div className="relative content-span mt-3 overflow-hidden">
-            <span>
-              <h2 className="text-center text-[3.5rem] font-bold w-[48rem]">
-                Meet Out Team
-              </h2>
-            </span>
-          </div>
-          <div className="relative content-span mt-5 overflow-hidden">
-            <span>
-              <p className="flex items-center justify-center w-[48rem] text-center text-lg">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-                a lorem id justo mollis congue. Proin malesuada at ex vel
-                pellentesque. Cras eget tellus ligula.
-              </p>
-            </span>
-          </div>
-        </div>
-        <div className="flex relative sticky-hero-end1 marquee-footer  w-full overflow-x-hidden ustify-center items-center z-[11]">
-          <div className="flex relative min-h-[19.75rem] w-full mt-[25rem] mb-[14rem]">
-            <ul className="relative flex items-center space-x-8 w-dvw min-h-[19.75rem] marquee-footer-content z-[12] overflow-x-hidden">
-              <li className="flex relative">
-                <div className="flex relative flex-start rounded-[1.25rem] w-[17.5rem] p-6 card">
-                  <div className="flex flex-col items-center justify-center">
-                    <Image
-                      className="mb-5"
-                      src="/Abby.svg"
-                      alt="Abby"
-                      width={80}
-                      height={80}
-                    />
-                    <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
-                      Abby
-                    </h4>
-                    <p className="text-base font-normal text-blue-500 mb-2">
-                      CEO
-                    </p>
-                    <p className="font-manropeRegular text-base text-center">
-                      Former co-founder of Opendoor. Early staff at Spotify and
-                      Clearbit.
-                    </p>
-                    <div className="flex mt-4 gap-4">
+          <div className="flex relative sticky-hero-end1 marquee-footer w-dvw overflow-x-hidden justify-center items-center z-[11]">
+            <div className="flex relative min-h-[19.75rem] w-dvw mt-[25rem] mb-[14rem]">
+              <ul className="relative flex items-center space-x-8 w-dvw min-h-[19.75rem] marquee-footer-content z-[12] overflow-x-hidden">
+                <li className="flex relative">
+                  <div className="flex relative flex-start rounded-[1.25rem] w-[17.5rem] p-6 card">
+                    <div className="flex flex-col items-center justify-center">
                       <Image
-                        src="/linkedin-icon.svg"
-                        alt="linkedin"
-                        width={20}
-                        height={20}
+                        className="mb-5"
+                        src="/Abby.svg"
+                        alt="Abby"
+                        width={80}
+                        height={80}
                       />
-                      <Image
-                        src="/twitter-icon.svg"
-                        alt="twitter"
-                        width={20}
-                        height={20}
-                      />
-                      <Image
-                        src="/web-icon.svg"
-                        alt="web"
-                        width={20}
-                        height={20}
-                      />
+                      <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
+                        Abby
+                      </h4>
+                      <p className="text-base font-normal text-blue-500 mb-2">
+                        CEO
+                      </p>
+                      <p className="font-manropeRegular text-base text-center">
+                        Former co-founder of Opendoor. Early staff at Spotify
+                        and Clearbit.
+                      </p>
+                      <div className="flex mt-4 gap-4">
+                        <Image
+                          src="/linkedin-icon.svg"
+                          alt="linkedin"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/twitter-icon.svg"
+                          alt="twitter"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/web-icon.svg"
+                          alt="web"
+                          width={20}
+                          height={20}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-              <li className="flex relative">
-                <div className="flex flex-col flex-start rounded-[1.25rem] w-[17.5rem] p-6 card">
-                  <div className="flex flex-col items-center justify-center">
-                    <Image
-                      className="mb-5"
-                      src="/Riki.svg"
-                      alt="Riki"
-                      width={80}
-                      height={80}
-                    />
-                    <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
-                      Riki
-                    </h4>
-                    <p className="text-base font-normal text-blue-500 mb-2">
-                      CTO
-                    </p>
-                    <p className="font-manropeRegular text-base text-center">
-                      Former co-founder of Opendoor. Early staff at Spotify and
-                      Clearbit.
-                    </p>
-                    <div className="flex mt-4 gap-4">
+                </li>
+                <li className="flex relative">
+                  <div className="flex flex-col flex-start rounded-[1.25rem] w-[17.5rem] p-6 card">
+                    <div className="flex flex-col items-center justify-center">
                       <Image
-                        src="/linkedin-icon.svg"
-                        alt="linkedin"
-                        width={20}
-                        height={20}
+                        className="mb-5"
+                        src="/Riki.svg"
+                        alt="Riki"
+                        width={80}
+                        height={80}
                       />
-                      <Image
-                        src="/twitter-icon.svg"
-                        alt="twitter"
-                        width={20}
-                        height={20}
-                      />
-                      <Image
-                        src="/web-icon.svg"
-                        alt="web"
-                        width={20}
-                        height={20}
-                      />
+                      <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
+                        Riki
+                      </h4>
+                      <p className="text-base font-normal text-blue-500 mb-2">
+                        CTO
+                      </p>
+                      <p className="font-manropeRegular text-base text-center">
+                        Former co-founder of Opendoor. Early staff at Spotify
+                        and Clearbit.
+                      </p>
+                      <div className="flex mt-4 gap-4">
+                        <Image
+                          src="/linkedin-icon.svg"
+                          alt="linkedin"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/twitter-icon.svg"
+                          alt="twitter"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/web-icon.svg"
+                          alt="web"
+                          width={20}
+                          height={20}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-              <li className="flex relative">
-                <div className="flex flex-col flex-start rounded-[1.25rem] w-[17.5rem] p-6 card">
-                  <div className="flex flex-col items-center justify-center">
-                    <Image
-                      className="mb-5"
-                      src="/Andre.svg"
-                      alt="Andre"
-                      width={80}
-                      height={80}
-                    />
-                    <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
-                      Andre
-                    </h4>
-                    <p className="text-base font-normal text-blue-500 mb-2">
-                      CMO
-                    </p>
-                    <p className="font-manropeRegular text-base text-center">
-                      Former co-founder of Opendoor. Early staff at Spotify and
-                      Clearbit.
-                    </p>
-                    <div className="flex flex-row mt-4 gap-4">
+                </li>
+                <li className="flex relative">
+                  <div className="flex flex-col flex-start rounded-[1.25rem] w-[17.5rem] p-6 card">
+                    <div className="flex flex-col items-center justify-center">
                       <Image
-                        src="/linkedin-icon.svg"
-                        alt="linkedin"
-                        width={20}
-                        height={20}
+                        className="mb-5"
+                        src="/Andre.svg"
+                        alt="Andre"
+                        width={80}
+                        height={80}
                       />
-                      <Image
-                        src="/twitter-icon.svg"
-                        alt="twitter"
-                        width={20}
-                        height={20}
-                      />
-                      <Image
-                        src="/web-icon.svg"
-                        alt="web"
-                        width={20}
-                        height={20}
-                      />
+                      <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
+                        Andre
+                      </h4>
+                      <p className="text-base font-normal text-blue-500 mb-2">
+                        CMO
+                      </p>
+                      <p className="font-manropeRegular text-base text-center">
+                        Former co-founder of Opendoor. Early staff at Spotify
+                        and Clearbit.
+                      </p>
+                      <div className="flex flex-row mt-4 gap-4">
+                        <Image
+                          src="/linkedin-icon.svg"
+                          alt="linkedin"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/twitter-icon.svg"
+                          alt="twitter"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/web-icon.svg"
+                          alt="web"
+                          width={20}
+                          height={20}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-              <li className="flex relative">
-                <div className="flex flex-col flex-start rounded-[1.25rem]  w-[17.5rem] p-6 card">
-                  <div className="flex flex-col items-center justify-center">
-                    <Image
-                      className="mb-5"
-                      src="/Irfan.svg"
-                      alt="Irfan"
-                      width={80}
-                      height={80}
-                    />
-                    <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
-                      Irfan
-                    </h4>
-                    <p className="text-base font-normal text-blue-500 mb-2">
-                      Designer
-                    </p>
-                    <p className="font-manropeRegular text-base text-center">
-                      Former co-founder of Opendoor. Early staff at Spotify and
-                      Clearbit.
-                    </p>
-                    <div className="flex flex-row mt-4 gap-4">
+                </li>
+                <li className="flex relative">
+                  <div className="flex flex-col flex-start rounded-[1.25rem]  w-[17.5rem] p-6 card">
+                    <div className="flex flex-col items-center justify-center">
                       <Image
-                        src="/linkedin-icon.svg"
-                        alt="linkedin"
-                        width={20}
-                        height={20}
+                        className="mb-5"
+                        src="/Irfan.svg"
+                        alt="Irfan"
+                        width={80}
+                        height={80}
                       />
-                      <Image
-                        src="/twitter-icon.svg"
-                        alt="twitter"
-                        width={20}
-                        height={20}
-                      />
-                      <Image
-                        src="/web-icon.svg"
-                        alt="web"
-                        width={20}
-                        height={20}
-                      />
+                      <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
+                        Irfan
+                      </h4>
+                      <p className="text-base font-normal text-blue-500 mb-2">
+                        Designer
+                      </p>
+                      <p className="font-manropeRegular text-base text-center">
+                        Former co-founder of Opendoor. Early staff at Spotify
+                        and Clearbit.
+                      </p>
+                      <div className="flex flex-row mt-4 gap-4">
+                        <Image
+                          src="/linkedin-icon.svg"
+                          alt="linkedin"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/twitter-icon.svg"
+                          alt="twitter"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/web-icon.svg"
+                          alt="web"
+                          width={20}
+                          height={20}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-              <li className="flex relative">
-                <div className="flex flex-col flex-start rounded-[1.25rem]  w-[17.5rem] p-6 card">
-                  <div className="flex flex-col items-center justify-center">
-                    <Image
-                      className="mb-5"
-                      src="/Arif.svg"
-                      alt="Arif"
-                      width={80}
-                      height={80}
-                    />
-                    <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
-                      Arif
-                    </h4>
-                    <p className="text-base font-normal text-blue-500 mb-2">
-                      Developer
-                    </p>
-                    <p className="font-manropeRegular text-base text-center">
-                      Former co-founder of Opendoor. Early staff at Spotify and
-                      Clearbit.
-                    </p>
-                    <div className="flex flex-row mt-4 gap-4">
+                </li>
+                <li className="flex relative">
+                  <div className="flex flex-col flex-start rounded-[1.25rem]  w-[17.5rem] p-6 card">
+                    <div className="flex flex-col items-center justify-center">
                       <Image
-                        src="/linkedin-icon.svg"
-                        alt="linkedin"
-                        width={20}
-                        height={20}
+                        className="mb-5"
+                        src="/Arif.svg"
+                        alt="Arif"
+                        width={80}
+                        height={80}
                       />
-                      <Image
-                        src="/twitter-icon.svg"
-                        alt="twitter"
-                        width={20}
-                        height={20}
-                      />
-                      <Image
-                        src="/web-icon.svg"
-                        alt="web"
-                        width={20}
-                        height={20}
-                      />
+                      <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
+                        Arif
+                      </h4>
+                      <p className="text-base font-normal text-blue-500 mb-2">
+                        Developer
+                      </p>
+                      <p className="font-manropeRegular text-base text-center">
+                        Former co-founder of Opendoor. Early staff at Spotify
+                        and Clearbit.
+                      </p>
+                      <div className="flex flex-row mt-4 gap-4">
+                        <Image
+                          src="/linkedin-icon.svg"
+                          alt="linkedin"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/twitter-icon.svg"
+                          alt="twitter"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/web-icon.svg"
+                          alt="web"
+                          width={20}
+                          height={20}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-              <li className="flex relative">
-                <div className="flex flex-col flex-start rounded-[1.25rem]  w-[17.5rem] p-6 card">
-                  <div className="flex flex-col items-center justify-center">
-                    <Image
-                      className="mb-5"
-                      src="/Abby.svg"
-                      alt="Abby"
-                      width={80}
-                      height={80}
-                    />
-                    <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
-                      Abby
-                    </h4>
-                    <p className="text-base font-normal text-blue-500 mb-2">
-                      CEO
-                    </p>
-                    <p className="font-manropeRegular text-base text-center">
-                      Former co-founder of Opendoor. Early staff at Spotify and
-                      Clearbit.
-                    </p>
-                    <div className="flex mt-4 gap-4">
+                </li>
+                <li className="flex relative">
+                  <div className="flex flex-col flex-start rounded-[1.25rem]  w-[17.5rem] p-6 card">
+                    <div className="flex flex-col items-center justify-center">
                       <Image
-                        src="/linkedin-icon.svg"
-                        alt="linkedin"
-                        width={20}
-                        height={20}
+                        className="mb-5"
+                        src="/Abby.svg"
+                        alt="Abby"
+                        width={80}
+                        height={80}
                       />
-                      <Image
-                        src="/twitter-icon.svg"
-                        alt="twitter"
-                        width={20}
-                        height={20}
-                      />
-                      <Image
-                        src="/web-icon.svg"
-                        alt="web"
-                        width={20}
-                        height={20}
-                      />
+                      <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
+                        Abby
+                      </h4>
+                      <p className="text-base font-normal text-blue-500 mb-2">
+                        CEO
+                      </p>
+                      <p className="font-manropeRegular text-base text-center">
+                        Former co-founder of Opendoor. Early staff at Spotify
+                        and Clearbit.
+                      </p>
+                      <div className="flex mt-4 gap-4">
+                        <Image
+                          src="/linkedin-icon.svg"
+                          alt="linkedin"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/twitter-icon.svg"
+                          alt="twitter"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/web-icon.svg"
+                          alt="web"
+                          width={20}
+                          height={20}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-              <li className="flex relative">
-                <div className="flex flex-col flex-start rounded-[1.25rem]  w-[17.5rem] p-6 card">
-                  <div className="flex flex-col items-center justify-center">
-                    <Image
-                      className="mb-5"
-                      src="/Riki.svg"
-                      alt="Riki"
-                      width={80}
-                      height={80}
-                    />
-                    <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
-                      Riki
-                    </h4>
-                    <p className="text-base font-normal text-blue-500 mb-2">
-                      CTO
-                    </p>
-                    <p className="font-manropeRegular text-base text-center">
-                      Former co-founder of Opendoor. Early staff at Spotify and
-                      Clearbit.
-                    </p>
-                    <div className="flex flex-row mt-4 gap-4">
+                </li>
+                <li className="flex relative">
+                  <div className="flex flex-col flex-start rounded-[1.25rem]  w-[17.5rem] p-6 card">
+                    <div className="flex flex-col items-center justify-center">
                       <Image
-                        src="/linkedin-icon.svg"
-                        alt="linkedin"
-                        width={20}
-                        height={20}
+                        className="mb-5"
+                        src="/Riki.svg"
+                        alt="Riki"
+                        width={80}
+                        height={80}
                       />
-                      <Image
-                        src="/twitter-icon.svg"
-                        alt="twitter"
-                        width={20}
-                        height={20}
-                      />
-                      <Image
-                        src="/web-icon.svg"
-                        alt="web"
-                        width={20}
-                        height={20}
-                      />
+                      <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
+                        Riki
+                      </h4>
+                      <p className="text-base font-normal text-blue-500 mb-2">
+                        CTO
+                      </p>
+                      <p className="font-manropeRegular text-base text-center">
+                        Former co-founder of Opendoor. Early staff at Spotify
+                        and Clearbit.
+                      </p>
+                      <div className="flex flex-row mt-4 gap-4">
+                        <Image
+                          src="/linkedin-icon.svg"
+                          alt="linkedin"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/twitter-icon.svg"
+                          alt="twitter"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/web-icon.svg"
+                          alt="web"
+                          width={20}
+                          height={20}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-              <li className="flex relative">
-                <div className="flex flex-col flex-start rounded-[1.25rem]  w-[17.5rem] p-6 card">
-                  <div className="flex flex-col items-center justify-center">
-                    <Image
-                      className="mb-5"
-                      src="/Andre.svg"
-                      alt="Andre"
-                      width={80}
-                      height={80}
-                    />
-                    <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
-                      Andre
-                    </h4>
-                    <p className="text-base font-normal text-blue-500 mb-2">
-                      CMO
-                    </p>
-                    <p className="font-manropeRegular text-base text-center">
-                      Former co-founder of Opendoor. Early staff at Spotify and
-                      Clearbit.
-                    </p>
-                    <div className="flex flex-row mt-4 gap-4">
+                </li>
+                <li className="flex relative">
+                  <div className="flex flex-col flex-start rounded-[1.25rem]  w-[17.5rem] p-6 card">
+                    <div className="flex flex-col items-center justify-center">
                       <Image
-                        src="/linkedin-icon.svg"
-                        alt="linkedin"
-                        width={20}
-                        height={20}
+                        className="mb-5"
+                        src="/Andre.svg"
+                        alt="Andre"
+                        width={80}
+                        height={80}
                       />
-                      <Image
-                        src="/twitter-icon.svg"
-                        alt="twitter"
-                        width={20}
-                        height={20}
-                      />
-                      <Image
-                        src="/web-icon.svg"
-                        alt="web"
-                        width={20}
-                        height={20}
-                      />
+                      <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
+                        Andre
+                      </h4>
+                      <p className="text-base font-normal text-blue-500 mb-2">
+                        CMO
+                      </p>
+                      <p className="font-manropeRegular text-base text-center">
+                        Former co-founder of Opendoor. Early staff at Spotify
+                        and Clearbit.
+                      </p>
+                      <div className="flex flex-row mt-4 gap-4">
+                        <Image
+                          src="/linkedin-icon.svg"
+                          alt="linkedin"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/twitter-icon.svg"
+                          alt="twitter"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/web-icon.svg"
+                          alt="web"
+                          width={20}
+                          height={20}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-              <li className="flex relative">
-                <div className="flex flex-col flex-start rounded-[1.25rem]  w-[17.5rem] p-6 card">
-                  <div className="flex flex-col items-center justify-center">
-                    <Image
-                      className="mb-5"
-                      src="/Irfan.svg"
-                      alt="Irfan"
-                      width={80}
-                      height={80}
-                    />
-                    <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
-                      Irfan
-                    </h4>
-                    <p className="text-base font-normal text-blue-500 mb-2">
-                      Designer
-                    </p>
-                    <p className="font-manropeRegular text-base text-center">
-                      Former co-founder of Opendoor. Early staff at Spotify and
-                      Clearbit.
-                    </p>
-                    <div className="flex flex-row mt-4 gap-4">
+                </li>
+                <li className="flex relative">
+                  <div className="flex flex-col flex-start rounded-[1.25rem]  w-[17.5rem] p-6 card">
+                    <div className="flex flex-col items-center justify-center">
                       <Image
-                        src="/linkedin-icon.svg"
-                        alt="linkedin"
-                        width={20}
-                        height={20}
+                        className="mb-5"
+                        src="/Irfan.svg"
+                        alt="Irfan"
+                        width={80}
+                        height={80}
                       />
-                      <Image
-                        src="/twitter-icon.svg"
-                        alt="twitter"
-                        width={20}
-                        height={20}
-                      />
-                      <Image
-                        src="/web-icon.svg"
-                        alt="web"
-                        width={20}
-                        height={20}
-                      />
+                      <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
+                        Irfan
+                      </h4>
+                      <p className="text-base font-normal text-blue-500 mb-2">
+                        Designer
+                      </p>
+                      <p className="font-manropeRegular text-base text-center">
+                        Former co-founder of Opendoor. Early staff at Spotify
+                        and Clearbit.
+                      </p>
+                      <div className="flex flex-row mt-4 gap-4">
+                        <Image
+                          src="/linkedin-icon.svg"
+                          alt="linkedin"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/twitter-icon.svg"
+                          alt="twitter"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/web-icon.svg"
+                          alt="web"
+                          width={20}
+                          height={20}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-              <li className="flex relative">
-                <div className="flex flex-col flex-start rounded-[1.25rem]  w-[17.5rem] p-6 card">
-                  <div
-                    ref={triggerRef}
-                    className="flex flex-col sticky-hero1-end items-center justify-center"
-                  >
-                    <Image
-                      className="mb-5"
-                      src="/Arif.svg"
-                      alt="Arif"
-                      width={80}
-                      height={80}
-                    />
-                    <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
-                      Arif
-                    </h4>
-                    <p className="text-base font-normal text-blue-500 mb-2">
-                      Developer
-                    </p>
-                    <p className="font-manropeRegular text-base text-center">
-                      Former co-founder of Opendoor. Early staff at Spotify and
-                      Clearbit.
-                    </p>
-                    <div className="flex flex-row mt-4 gap-4">
+                </li>
+                <li className="flex relative">
+                  <div className="flex flex-col flex-start rounded-[1.25rem]  w-[17.5rem] p-6 card">
+                    <div
+                      ref={triggerRef}
+                      className="flex flex-col sticky-hero1-end items-center justify-center"
+                    >
                       <Image
-                        src="/linkedin-icon.svg"
-                        alt="linkedin"
-                        width={20}
-                        height={20}
+                        className="mb-5"
+                        src="/Arif.svg"
+                        alt="Arif"
+                        width={80}
+                        height={80}
                       />
-                      <Image
-                        src="/twitter-icon.svg"
-                        alt="twitter"
-                        width={20}
-                        height={20}
-                      />
-                      <Image
-                        src="/web-icon.svg"
-                        alt="web"
-                        width={20}
-                        height={20}
-                      />
+                      <h4 className="flex text-center font-manropeRegular font-semibold text-lg">
+                        Arif
+                      </h4>
+                      <p className="text-base font-normal text-blue-500 mb-2">
+                        Developer
+                      </p>
+                      <p className="font-manropeRegular text-base text-center">
+                        Former co-founder of Opendoor. Early staff at Spotify
+                        and Clearbit.
+                      </p>
+                      <div className="flex flex-row mt-4 gap-4">
+                        <Image
+                          src="/linkedin-icon.svg"
+                          alt="linkedin"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/twitter-icon.svg"
+                          alt="twitter"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src="/web-icon.svg"
+                          alt="web"
+                          width={20}
+                          height={20}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-            </ul>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>

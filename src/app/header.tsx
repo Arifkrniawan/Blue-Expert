@@ -203,6 +203,8 @@ export default function Header() {
     });
 
     const headerOnEnter = document.querySelector('.header');
+    const headerOnEnter1 = document.querySelector('.header1');
+
     const headerOnEnterImg = document.querySelectorAll('.header .header-shadow');
     
     const tl1 = gsap.timeline({
@@ -220,6 +222,18 @@ export default function Header() {
       duration: 1,
       ease: 'power2.inOut'
     });
+
+    tl1.fromTo(headerOnEnter1, {
+      width: '95%',
+      borderBottomLeftRadius: '4rem',
+      borderBottomRightRadius: '4rem',
+    }, {
+      width: '100%',
+      borderBottomLeftRadius: 0,
+      borderBottomRightRadius: 0,
+      duration: 1,
+      ease: 'power2.inOut'
+    },'<');
 
     tl1.to(headerOnEnterImg, {
       opacity: 0,
@@ -244,7 +258,7 @@ export default function Header() {
       style={{
         animation: flash ? "backgroundFlashing 1s ease-in-out" : "none",
       }}
-      className={`header flex relative flex-col text-white w-[95%] mx-auto bg-[#0D100D] oveflow-hidden`}
+      className="header relative flex flex-col text-white w-[95%] mx-auto bg-[#0D100D] oveflow-hidden"
     >
       <Image
         className="header-shadow absolute border-0 left-0 h-[49.4375rem]"
@@ -260,7 +274,7 @@ export default function Header() {
         width={640}
         height={791}
       />
-      <div className="relative container mx-auto grid grid-rows-2 h-[80.87dvh] w-[80dvw] item-center justify-items-center overflow-hidden">
+      <div className="relative mx-auto grid grid-rows-2 h-[80.87dvh] w-[80dvw] items-center justify-items-center overflow-hidden">
         <Image
           className="slide-up-50 absolute left-0 bottom-0"
           src="/studioDisplay1.svg"
@@ -377,8 +391,8 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <div className="sticky w-[38.75rem] h-[28.375rem] z-[100] pointer-events-none">
-          <div className="sticky-entry z-[100]">
+        <div className="sticky w-[38.75rem] h-[28.375rem] z-[7]">
+          <div className="sticky-entry z-[7]">
             <Image
               className="absolute"
               src="/heroExpert.svg"

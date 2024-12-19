@@ -9,7 +9,6 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import "./globals.css";
 import Navbar from "./navbar";
 import Header from "./header";
-import { transform } from "next/dist/build/swc";
 
 const inter = Inter({ subsets: ["latin"] });
 

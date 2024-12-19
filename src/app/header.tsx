@@ -1,14 +1,12 @@
-"use client";
-import { useEffect, useState, useRef } from "react";
-import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { Observer } from "gsap/Observer";
-// import useScrollAnimationStore from "../state/ScrollStore";
+'use client';
+import { useEffect, useState, useRef } from 'react';
+import Image from 'next/image';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { Observer } from 'gsap/Observer';
 
 export default function Header() {
   const [flash, setFlashed] = useState(false);
-  const heroRef = useRef<HTMLImageElement>(null);
 
   useGSAP(() => {
     gsap.registerPlugin(Observer);
@@ -50,7 +48,7 @@ export default function Header() {
       const tl = gsap.timeline({
         repeat: config.repeat,
         paused: config.paused,
-        defaults: { ease: "none" },
+        defaults: { ease: 'none' },
         onReverseComplete: () => {
           (tl as EnhancedTimeline).totalTime(
             tl.rawTime() + tl.duration() * 100
@@ -72,7 +70,7 @@ export default function Header() {
       const snap =
         config.snap === false
           ? (v: number) => v
-          : gsap.utils.snap(typeof config.snap === "number" ? config.snap : 0);
+          : gsap.utils.snap(typeof config.snap === 'number' ? config.snap : 0);
 
       // Declare variables
       let totalWidth: number;
@@ -85,11 +83,11 @@ export default function Header() {
       gsap.set(items, {
         xPercent: (i, el) => {
           const w = (widths[i] = parseFloat(
-            gsap.getProperty(el, "width", "px") as string
+            gsap.getProperty(el, 'width', 'px') as string
           ));
           xPercents[i] = snap(
-            (parseFloat(gsap.getProperty(el, "x", "px") as string) / w) * 100 +
-              parseFloat(gsap.getProperty(el, "xPercent") as string)
+            (parseFloat(gsap.getProperty(el, 'x', 'px') as string) / w) * 100 +
+              parseFloat(gsap.getProperty(el, 'xPercent') as string)
           );
           return xPercents[i];
         },
@@ -109,7 +107,7 @@ export default function Header() {
         (xPercents[length - 1] / 100) * widths[length - 1] -
         startX +
         items[length - 1].offsetWidth *
-          parseFloat(gsap.getProperty(items[length - 1], "scaleX") as string) +
+          parseFloat(gsap.getProperty(items[length - 1], 'scaleX') as string) +
         paddingRight;
 
       // Create animations for each item
@@ -119,7 +117,7 @@ export default function Header() {
         distanceToStart = item.offsetLeft + curX - startX;
         distanceToLoop =
           distanceToStart +
-          widths[i] * parseFloat(gsap.getProperty(item, "scaleX") as string);
+          widths[i] * parseFloat(gsap.getProperty(item, 'scaleX') as string);
 
         tl.to(
           item,
@@ -195,78 +193,58 @@ export default function Header() {
 
     //
     const scrollingText = gsap.utils.toArray(
-      ".marquee-content li"
+      '.marquee-content li'
     ) as HTMLElement[];
 
     const tl = horizontalLoop(scrollingText, {
       repeat: -1,
     });
 
-    const headerOnEnter = document.querySelector(".header");
-    const headerOnEnter1 = document.querySelector(".header1");
-    const headerOnEnterArrow = document.querySelectorAll(".arrow");
+    const headerOnEnter = document.querySelector('.header');
+    const headerOnEnter1 = document.querySelector('.header1');
+    const headerOnEnterArrow = document.querySelectorAll('.arrow');
     const headerOnEnterImg = document.querySelectorAll(
-      ".header > .header-shadow"
+      '.header > .header-shadow'
     );
 
     const tl1 = gsap.timeline({
       paused: true,
     });
 
-    tl1.fromTo(
-      headerOnEnter,
-      {
-        width: "95%",
-        borderBottomLeftRadius: "4rem",
-        borderBottomRightRadius: "4rem",
-      },
-      {
-        width: "100%",
-        borderBottomLeftRadius: 0,
-        borderBottomRightRadius: 0,
-        duration: 2,
-        ease: "power2.inOut",
-      }
-    );
-
-    tl1.fromTo(
-      headerOnEnter1,
-      {
-        width: "95%",
-        borderBottomLeftRadius: "4rem",
-        borderBottomRightRadius: "4rem",
-      },
-      {
-        width: "100%",
-        borderBottomLeftRadius: 0,
-        borderBottomRightRadius: 0,
-        duration: 2,
-        ease: "power2.inOut",
-      },
-      "<"
-    );
-
-    tl1
-      .to(
-        headerOnEnterImg,
+    tl1.fromTo( headerOnEnter,
         {
-          opacity: 0,
+          width: '95%',
+          borderBottomLeftRadius: '4rem',
+          borderBottomRightRadius: '4rem',
         },
-        "<"
+        {
+          width: '100%',
+          borderBottomLeftRadius: 0,
+          borderBottomRightRadius: 0,
+          duration: 2,
+          ease: 'power2.inOut',
+        }
       )
-      .to(
-        headerOnEnterArrow,
+      .fromTo( headerOnEnter1,
         {
-          opacity: 0,
+          width: '95%',
+          borderBottomLeftRadius: '4rem',
+          borderBottomRightRadius: '4rem',
         },
-        "<"
-      );
+        {
+          width: '100%',
+          borderBottomLeftRadius: 0,
+          borderBottomRightRadius: 0,
+          duration: 2,
+          ease: 'power2.inOut'}, '<')
+      .to(headerOnEnterImg, { opacity: 0 }, '<')
+      .to(headerOnEnterArrow, { opacity: 0 },'<');
 
-    headerOnEnter?.addEventListener("mouseenter", () => {
+    headerOnEnter?.addEventListener('mouseenter', () => {
       tl1.play();
     });
 
-    headerOnEnter?.addEventListener("mouseleave", () => {
+    headerOnEnter?.addEventListener('mouseleave', () => {
       tl1.reverse();
     });
   }, []);
@@ -279,248 +257,248 @@ export default function Header() {
         }
       }}
       style={{
-        animation: flash ? "backgroundFlashing 1s ease-in-out" : "none",
+        animation: flash ? 'backgroundFlashing 1s ease-in-out' : 'none',
       }}
-      className="header relative flex flex-col text-white w-[95%] mx-auto bg-[#0D100D] oveflow-hidden"
+      className='header relative flex flex-col text-white w-[95%] mx-auto bg-[#0D100D] oveflow-hidden'
     >
       <Image
-        className="header-shadow absolute border-0 left-0 h-[49.4375rem]"
-        src="/vector-7.svg"
-        alt="vector7"
+        className='header-shadow absolute border-0 left-0 h-[49.4375rem]'
+        src='/vector-7.svg'
+        alt='vector7'
         width={640}
         height={787}
       />
       <Image
-        className="header-shadow absolute border-0 right-0 top-18 h-[49.4375rem]"
-        src="/vector-6.svg"
-        alt="vector6"
+        className='header-shadow absolute border-0 right-0 top-18 h-[49.4375rem]'
+        src='/vector-6.svg'
+        alt='vector6'
         width={640}
         height={791}
       />
-      <div className="relative mx-auto flex h-[80.87dvh] w-[80dvw] justify-center overflow-hidden">
+      <div className='relative mx-auto flex h-[80.87dvh] w-[80dvw] justify-center overflow-hidden'>
         <Image
-          className="slide-up-50 absolute left-0 -bottom-4"
-          src="/studioDisplay1.svg"
-          alt="studio display"
+          className='slide-up-50 absolute left-0 -bottom-4'
+          src='/studioDisplay1.svg'
+          alt='studio display'
           width={398}
           height={424}
         />
         <Image
-          className="absolute slide-up-50 top-[18.625rem] right-0"
-          src="/studioDisplay2.svg"
-          alt="studio Display"
+          className='absolute slide-up-50 top-[18.625rem] right-0'
+          src='/studioDisplay2.svg'
+          alt='studio Display'
           width={752}
           height={578}
         />
         <Image
-          className="absolute slide-up-50 -bottom-80"
-          src="/hero-ellipse-bg.svg"
-          alt="ellipse-bg"
+          className='absolute slide-up-50 -bottom-80'
+          src='/hero-ellipse-bg.svg'
+          alt='ellipse-bg'
           width={1440}
           height={966}
         />
-        <div className="relative grid grid-cols-2 row-start-1">
-          <div className="relative flex flex-col col-start-1 col-end-1 mt-12 w-[43rem]">
-            <div className="relative content-span">
-              <span className="flex slide-up-100">
+        <div className='relative grid grid-cols-2 row-start-1'>
+          <div className='relative flex flex-col col-start-1 col-end-1 mt-12 w-[43rem]'>
+            <div className='relative content-span'>
+              <span className='flex slide-up-100'>
                 <Image
-                  className="relative w-[48px] h-[4.75rem] ml-[1.6875rem]"
-                  src="/logosemut.svg"
-                  alt="logo"
+                  className='relative w-[48px] h-[4.75rem] ml-[1.6875rem]'
+                  src='/logosemut.svg'
+                  alt='logo'
                   width={180}
                   height={37}
                 />
-                <h1 className="leading-[5.8rem] font-lota text-7xl ml-6">
+                <h1 className='leading-[5.8rem] font-lota text-7xl ml-6'>
                   <b>Create</b> websites
                 </h1>
               </span>
             </div>
-            <div className="content-span">
-              <span className="flex slide-up-100">
-                <h1 className="font-lota text-7xl tracking-custom">
+            <div className='content-span'>
+              <span className='flex slide-up-100'>
+                <h1 className='font-lota text-7xl tracking-custom'>
                   with less work
                 </h1>
               </span>
             </div>
-            <button className="slide-up-50 button py-4 px-8 w-[14.5rem] h-[3.5rem] font-beeboMedium">
+            <button className='slide-up-50 button py-4 px-8 w-[14.5rem] h-[3.5rem] font-beeboMedium'>
               Explore BlueXpert
               <Image
-                src="/link-button.svg"
-                alt="link-button"
+                src='/link-button.svg'
+                alt='link-button'
                 width={20}
                 height={20}
               />
             </button>
             <Image
-              className="slide-up-101 content-span left-16 top-20"
-              src="/imageslash.svg"
-              alt="img"
+              className='slide-up-101 content-span left-16 top-20'
+              src='/imageslash.svg'
+              alt='img'
               width={262.636}
               height={16.507}
             />
           </div>
-          <div className="relative flex flex-col mt-12 ml-[11.625rem]">
-            <div className="relative flex font-manropeRegular w-[22rem]">
-              <p className="text-[1rem] content-span slide-up-100">
+          <div className='relative flex flex-col mt-12 ml-[11.625rem]'>
+            <div className='relative flex font-manropeRegular w-[22rem]'>
+              <p className='text-[1rem] content-span slide-up-100'>
                 Lorem ipsum dolor sit amet, consectetur
-                <br className="slide-up-100 content-span text-[1rem]" />
+                <br className='slide-up-100 content-span text-[1rem]' />
                 Quisque malesuada ipsum nulla.
-                <br className="slide-up-100 content-span text-[1rem]" />
+                <br className='slide-up-100 content-span text-[1rem]' />
                 Vestibulum ante ipsum primis in faucibus
               </p>
             </div>
-            <div className="relative flex slide-up-50">
-              <div className="">
+            <div className='relative flex slide-up-50'>
+              <div className=''>
                 <Image
-                  className="absolute bottom-[5.5rem] z-4"
-                  src="review-photo.svg"
-                  alt="testi0"
+                  className='absolute bottom-[5.5rem] z-4'
+                  src='review-photo.svg'
+                  alt='testi0'
                   width={40}
                   height={40}
                 />
                 <Image
-                  className="absolute bottom-[5.5rem] left-7 z-3"
-                  src="review-photo1.svg"
-                  alt="testi0"
+                  className='absolute bottom-[5.5rem] left-7 z-3'
+                  src='review-photo1.svg'
+                  alt='testi0'
                   width={40}
                   height={40}
                 />
                 <Image
-                  className="absolute bottom-[5.5rem] left-14 z-2"
-                  src="review-photo2.svg"
-                  alt="testi0"
+                  className='absolute bottom-[5.5rem] left-14 z-2'
+                  src='review-photo2.svg'
+                  alt='testi0'
                   width={40}
                   height={40}
                 />
                 <Image
-                  className="absolute bottom-[5.5rem] left-[5.25rem] z-1"
-                  src="review-photo3.svg"
-                  alt="testi0"
+                  className='absolute bottom-[5.5rem] left-[5.25rem] z-1'
+                  src='review-photo3.svg'
+                  alt='testi0'
                   width={40}
                   height={40}
                 />
-                <p className="font-manropeRegular mt-24">
+                <p className='font-manropeRegular mt-24'>
                   6k+ reviews (4.8 of 5)
                 </p>
               </div>
-              <div className="relative flex slide-up-50 justify-end mt-[6.5rem]">
+              <div className='relative flex slide-up-50 justify-end mt-[6.5rem]'>
                 <Image
-                  className="arrow opacity-100 right-36 bottom-4"
-                  src="/arrow.png"
+                  className='arrow opacity-100 right-36 bottom-4'
+                  src='/arrow.png'
                   width={68}
                   height={68}
-                  alt="arrow"
+                  alt='arrow'
                 />
-                <h3 className="arrow opacity-100 text-[1.125rem] font-poppinsSemiBold">
+                <h3 className='arrow opacity-100 text-[1.125rem] font-poppinsSemiBold'>
                   Our Project
                 </h3>
               </div>
             </div>
           </div>
         </div>
-        <div className="sticky w-[38.75rem] h-[28.375rem] z-[7]">
-          <div className="sticky-entry z-[7]">
+        <div className='sticky w-[38.75rem] h-[28.375rem] z-[7]'>
+          <div className='sticky-entry z-[7]'>
             <Image
-              className="absolute"
-              src="/heroExpert.svg"
-              alt="heroexpert"
-              sizes="38.75rem"
+              className='absolute'
+              src='/heroExpert.svg'
+              alt='heroexpert'
+              sizes='38.75rem'
               fill
-              style={{ objectFit: "contain" }}
+              style={{ objectFit: 'contain' }}
             />
           </div>
         </div>
       </div>
-      <div className="marquee-header relative flex left-[50%] right-[50%] h-[10.85dvh] ml-[-50dvw] mr-[-50dvw] bg-blue-400 z-10">
-        <div className="RT1 w-64 content-center font-manropeRegular">
-          <p className="my-8 w-[10.9rem] ml-8 mr-[3.75rem] h-[2.5rem] text-xs text-black leading-snug">
+      <div className='marquee-header relative flex left-[50%] right-[50%] h-[10.85dvh] ml-[-50dvw] mr-[-50dvw] bg-blue-400 z-10'>
+        <div className='RT1 w-64 content-center font-manropeRegular'>
+          <p className='my-8 w-[10.9rem] ml-8 mr-[3.75rem] h-[2.5rem] text-xs text-black leading-snug'>
             Leading in the Business World: Our Clients
           </p>
         </div>
-        <div className="marquee my-8">
-          <ul className="marquee-content">
+        <div className='marquee my-8'>
+          <ul className='marquee-content'>
             <li>
-              <Image src="bartha.svg" alt="" width={10.25} height={40} />
+              <Image src='bartha.svg' alt='' width={10.25} height={40} />
             </li>
             <li>
-              <Image src="pvj.svg" alt="" width={10.25} height={40} />
+              <Image src='pvj.svg' alt='' width={10.25} height={40} />
             </li>
             <li>
-              <Image src="bartha.svg" alt="" width={10.25} height={40} />
+              <Image src='bartha.svg' alt='' width={10.25} height={40} />
             </li>
             <li>
-              <Image src="pvj.svg" alt="" width={10.25} height={40} />
+              <Image src='pvj.svg' alt='' width={10.25} height={40} />
             </li>
             <li>
-              <Image src="bartha.svg" alt="" width={10.25} height={40} />
+              <Image src='bartha.svg' alt='' width={10.25} height={40} />
             </li>
             <li>
-              <Image src="pvj.svg" alt="" width={10.25} height={40} />
+              <Image src='pvj.svg' alt='' width={10.25} height={40} />
             </li>
             <li>
-              <Image src="bartha.svg" alt="" width={10.25} height={40} />
+              <Image src='bartha.svg' alt='' width={10.25} height={40} />
             </li>
             <li>
-              <Image src="pvj.svg" alt="" width={10.25} height={40} />
+              <Image src='pvj.svg' alt='' width={10.25} height={40} />
             </li>
           </ul>
         </div>
       </div>
-      <div className="header1 relative flex flex-col text-white text-[1.2rem] self-center justify-center items-center bg-[#0D100D] z-10 w-full">
-        <div className="Justify-center items-center mx-auto mt-20">
-          <p className="text-center text-blue-500 text-base w-[48rem]">
+      <div className='header1 relative flex flex-col text-white text-[1.2rem] self-center justify-center items-center bg-[#0D100D] z-10 w-full'>
+        <div className='Justify-center items-center mx-auto mt-20'>
+          <p className='text-center text-blue-500 text-base w-[48rem]'>
             Work & Project
           </p>
-          <h2 className="text-center mt-3 text-[3.5rem] font-bold w-[48rem]">
+          <h2 className='text-center mt-3 text-[3.5rem] font-bold w-[48rem]'>
             Our Latest Work
           </h2>
-          <p className="flex text-center mt-[1rem] text-lg w-[48rem]">
+          <p className='flex text-center mt-[1rem] text-lg w-[48rem]'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a
             lorem id justo mollis congue. Proin malesuada at ex vel
             pellentesque. Cras eget tellus ligula.
           </p>
         </div>
-        <div className="sticky-hero-end relative flex justify-center self-center slider h-[100rem]">
-          <div className="item-slider">
+        <div className='sticky-hero-end relative flex justify-center self-center slider h-[100rem]'>
+          <div className='item-slider'>
             <Image
-              className="active"
-              src="/bg-bartha.svg"
+              className='active'
+              src='/bg-bartha.svg'
               width={1240}
               height={930}
-              alt="bartha-bg"
+              alt='bartha-bg'
             />
             <Image
-              src="/bg-maximus.svg"
+              src='/bg-maximus.svg'
               width={1240}
               height={930}
-              alt="bartha-bg"
+              alt='bartha-bg'
             />
             <Image
-              src="/bg-prisma.svg"
+              src='/bg-prisma.svg'
               width={1240}
               height={930}
-              alt="bartha-bg"
+              alt='bartha-bg'
             />
             <Image
-              src="/bg-trebel.svg"
+              src='/bg-trebel.svg'
               width={1240}
               height={930}
-              alt="bartha-bg"
+              alt='bartha-bg'
             />
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center mt-20 gap-y-5 mb-40">
-          <p className="text-center">
+        <div className='flex flex-col justify-center items-center mt-20 gap-y-5 mb-40'>
+          <p className='text-center'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
             dignissim a leo nec vulputate. <br />
             Cras mattis porta dolor in viverra.
           </p>
 
-          <a className="see-all" href="">
-            See All{" "}
+          <a className='see-all' href=''>
+            See All{' '}
             <Image
-              src="/arrow-narrow-right-down.svg"
-              alt="arrow narrow"
+              src='/arrow-narrow-right-down.svg'
+              alt='arrow narrow'
               width={26}
               height={26}
             />

@@ -193,7 +193,7 @@ export default function Header() {
       return tl;
     }
 
-    // 
+    //
     const scrollingText = gsap.utils.toArray(
       ".marquee-content li"
     ) as HTMLElement[];
@@ -202,55 +202,73 @@ export default function Header() {
       repeat: -1,
     });
 
-    const headerOnEnter = document.querySelector('.header');
-    const headerOnEnter1 = document.querySelector('.header1');
-    const headerOnEnterArrow = document.querySelectorAll('.arrow');
-    const headerOnEnterImg = document.querySelectorAll('.header > .header-shadow');
-
+    const headerOnEnter = document.querySelector(".header");
+    const headerOnEnter1 = document.querySelector(".header1");
+    const headerOnEnterArrow = document.querySelectorAll(".arrow");
+    const headerOnEnterImg = document.querySelectorAll(
+      ".header > .header-shadow"
+    );
 
     const tl1 = gsap.timeline({
       paused: true,
-    })
-
-    tl1.fromTo(headerOnEnter, {
-      width: '95%',
-      borderBottomLeftRadius: '4rem',
-      borderBottomRightRadius: '4rem',
-    }, {
-      width: '100%',
-      borderBottomLeftRadius: 0,
-      borderBottomRightRadius: 0,
-      duration: 2,
-      ease: 'power2.inOut'
     });
-  
-    tl1.fromTo(headerOnEnter1, {
-      width: '95%',
-      borderBottomLeftRadius: '4rem',
-      borderBottomRightRadius: '4rem',
-    }, {
-      width: '100%',
-      borderBottomLeftRadius: 0,
-      borderBottomRightRadius: 0,
-      duration: 2,
-      ease: 'power2.inOut'
-    },'<');
 
-    tl1.to(headerOnEnterImg, {
-      opacity: 0,
-    },'<')
+    tl1.fromTo(
+      headerOnEnter,
+      {
+        width: "95%",
+        borderBottomLeftRadius: "4rem",
+        borderBottomRightRadius: "4rem",
+      },
+      {
+        width: "100%",
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 0,
+        duration: 2,
+        ease: "power2.inOut",
+      }
+    );
 
-    tl.to(headerOnEnterArrow, {
-      opacity: 0,
-    },'<')
+    tl1.fromTo(
+      headerOnEnter1,
+      {
+        width: "95%",
+        borderBottomLeftRadius: "4rem",
+        borderBottomRightRadius: "4rem",
+      },
+      {
+        width: "100%",
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 0,
+        duration: 2,
+        ease: "power2.inOut",
+      },
+      "<"
+    );
 
-    headerOnEnter?.addEventListener('mouseenter', ()=>{
+    tl1
+      .to(
+        headerOnEnterImg,
+        {
+          opacity: 0,
+        },
+        "<"
+      )
+      .to(
+        headerOnEnterArrow,
+        {
+          opacity: 0,
+        },
+        "<"
+      );
+
+    headerOnEnter?.addEventListener("mouseenter", () => {
       tl1.play();
-    })
+    });
 
-    headerOnEnter?.addEventListener('mouseleave', ()=>{
+    headerOnEnter?.addEventListener("mouseleave", () => {
       tl1.reverse();
-    })
+    });
   }, []);
 
   return (
@@ -279,7 +297,7 @@ export default function Header() {
         width={640}
         height={791}
       />
-      <div className="relative mx-auto grid grid-rows-2 h-[80.87dvh] w-[80dvw] justify-items-center overflow-hidden">
+      <div className="relative mx-auto flex h-[80.87dvh] w-[80dvw] justify-center overflow-hidden">
         <Image
           className="slide-up-50 absolute left-0 -bottom-4"
           src="/studioDisplay1.svg"
@@ -302,9 +320,9 @@ export default function Header() {
           height={966}
         />
         <div className="relative grid grid-cols-2 row-start-1">
-          <div className="relative grid overflow-visible grid-cols-3 grid-rows-3 col-start-1 col-end-1 mt-12 w-[43rem] h-[16.625rem]">
-            <div className="relative content-span grid col-start-1 col-end-4 row-start-1 row-end-2">
-              <span className="flex slide-up-100 h-[6.25rem]">
+          <div className="relative flex flex-col col-start-1 col-end-1 mt-12 w-[43rem]">
+            <div className="relative content-span">
+              <span className="flex slide-up-100">
                 <Image
                   className="relative w-[48px] h-[4.75rem] ml-[1.6875rem]"
                   src="/logosemut.svg"
@@ -312,21 +330,19 @@ export default function Header() {
                   width={180}
                   height={37}
                 />
-                <h1 className="relative leading-[5.8rem] font-lota text-7xl ml-6">
+                <h1 className="leading-[5.8rem] font-lota text-7xl ml-6">
                   <b>Create</b> websites
                 </h1>
               </span>
             </div>
-
-            <div className="content-span grid col-start-1 col-end-4 row-start-2 row-end-2">
-              <span className="slide-up-100">
+            <div className="content-span">
+              <span className="flex slide-up-100">
                 <h1 className="font-lota text-7xl tracking-custom">
                   with less work
                 </h1>
               </span>
             </div>
-
-            <button className="slide-up-50 button self-end py-4 px-8 col-start-1 col-end-2 w-[232px] h-[56px] row-start-3 row-end-3 font-beeboMedium">
+            <button className="slide-up-50 button py-4 px-8 w-[14.5rem] h-[3.5rem] font-beeboMedium">
               Explore BlueXpert
               <Image
                 src="/link-button.svg"
@@ -336,63 +352,69 @@ export default function Header() {
               />
             </button>
             <Image
-                  className="absolute left-16 top-20 splash"
-                  src="/imageslash.svg"
-                  alt="img"
-                  width={262.636}
-                  height={16.507}
-                />
+              className="slide-up-101 content-span left-16 top-20"
+              src="/imageslash.svg"
+              alt="img"
+              width={262.636}
+              height={16.507}
+            />
           </div>
-          <div className="relative grid grid-rows-2 col-start-2 col-end-3 mt-12 ml-[11.625rem] h-[16.625rem]">
-            <div className="relative grid col-start-1 col-end-1 font-manropeRegular w-[22rem]">
-              <p className="slide-up-100 text-[1rem] content-span content-span1">
+          <div className="relative flex flex-col mt-12 ml-[11.625rem]">
+            <div className="relative flex font-manropeRegular w-[22rem]">
+              <p className="text-[1rem] content-span slide-up-100">
                 Lorem ipsum dolor sit amet, consectetur
-                <br className="slide-up-100 content-span content-span1" />
+                <br className="slide-up-100 content-span text-[1rem]" />
                 Quisque malesuada ipsum nulla.
-                <br className="slide-up-100 content-span content-span1" />
+                <br className="slide-up-100 content-span text-[1rem]" />
                 Vestibulum ante ipsum primis in faucibus
               </p>
             </div>
-            <div className="header-last-element relative grid slide-up-50 slideUp col-start-1 col-end-1 row-start-2 row-end-2">
-              <Image
-                className="absolute mt-[-0.8rem] z-4"
-                src="review-photo.svg"
-                alt="testi0"
-                width={40}
-                height={40}
-              />
-              <Image
-                className="absolute ml-7 z-3 mt-[-0.8rem]"
-                src="review-photo1.svg"
-                alt="testi0"
-                width={40}
-                height={40}
-              />
-              <Image
-                className="absolute ml-14 z-2 mt-[-0.8rem]"
-                src="review-photo2.svg"
-                alt="testi0"
-                width={40}
-                height={40}
-              />
-              <Image
-                className="absolute ml-[5.25rem] z-1 mt-[-0.8rem]"
-                src="review-photo3.svg"
-                alt="testi0"
-                width={40}
-                height={40}
-              />
-              <p className="font-manropeRegular mt-8">6k+ reviews (4.8 of 5)</p>
-              <Image
-                className="arrow opacity-100 absolute right-36 bottom-4"
-                src="/arrow.png"
-                width={68}
-                height={68}
-                alt="arrow"
-              />
-              <h3 className="arrow absolute opacity-100 right-8 bottom-16 text-[1.125rem] font-poppinsSemiBold">
-                Our Project
-              </h3>
+            <div className="relative flex slide-up-50">
+              <div className="">
+                <Image
+                  className="absolute bottom-[5.5rem] z-4"
+                  src="review-photo.svg"
+                  alt="testi0"
+                  width={40}
+                  height={40}
+                />
+                <Image
+                  className="absolute bottom-[5.5rem] left-7 z-3"
+                  src="review-photo1.svg"
+                  alt="testi0"
+                  width={40}
+                  height={40}
+                />
+                <Image
+                  className="absolute bottom-[5.5rem] left-14 z-2"
+                  src="review-photo2.svg"
+                  alt="testi0"
+                  width={40}
+                  height={40}
+                />
+                <Image
+                  className="absolute bottom-[5.5rem] left-[5.25rem] z-1"
+                  src="review-photo3.svg"
+                  alt="testi0"
+                  width={40}
+                  height={40}
+                />
+                <p className="font-manropeRegular mt-24">
+                  6k+ reviews (4.8 of 5)
+                </p>
+              </div>
+              <div className="relative flex slide-up-50 justify-end mt-[6.5rem]">
+                <Image
+                  className="arrow opacity-100 right-36 bottom-4"
+                  src="/arrow.png"
+                  width={68}
+                  height={68}
+                  alt="arrow"
+                />
+                <h3 className="arrow opacity-100 text-[1.125rem] font-poppinsSemiBold">
+                  Our Project
+                </h3>
+              </div>
             </div>
           </div>
         </div>
@@ -444,21 +466,21 @@ export default function Header() {
           </ul>
         </div>
       </div>
-      <div className="header1 relative flex flex-col text-white text-[18.7px] self-center justify-center items-center bg-[#0D100D] z-10 w-full">
+      <div className="header1 relative flex flex-col text-white text-[1.2rem] self-center justify-center items-center bg-[#0D100D] z-10 w-full">
         <div className="Justify-center items-center mx-auto mt-20">
-          <p className="text-center text-blue-500 text-base w-[768px]">
+          <p className="text-center text-blue-500 text-base w-[48rem]">
             Work & Project
           </p>
-          <h2 className="text-center mt-3 text-[56px] font-bold w-[768px]">
+          <h2 className="text-center mt-3 text-[3.5rem] font-bold w-[48rem]">
             Our Latest Work
           </h2>
-          <p className="flex text-center mt-[1rem] text-lg w-[768px]">
+          <p className="flex text-center mt-[1rem] text-lg w-[48rem]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a
             lorem id justo mollis congue. Proin malesuada at ex vel
             pellentesque. Cras eget tellus ligula.
           </p>
         </div>
-        <div className="sticky-hero-end relative flex justify-center self-center slider h-[1599px]">
+        <div className="sticky-hero-end relative flex justify-center self-center slider h-[100rem]">
           <div className="item-slider">
             <Image
               className="active"

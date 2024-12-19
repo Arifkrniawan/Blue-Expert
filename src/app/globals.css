@@ -148,7 +148,7 @@ ul > li:nth-child(1) {
 }
 
 .slide-up-100.content-span {
-  position: absolute;
+  position: relative;
   clip-path: inset(0 0 100% 0);
 }
 
@@ -198,7 +198,13 @@ ul > li:nth-child(1) {
 }
 
 .slide-up-50 {
-  opacity: 1;
+  opacity: 0;
+}
+
+.slide-up-101.content-span {
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+  position: absolute;
 }
 
 .marquee {

@@ -458,8 +458,8 @@ export default function Header() {
             pellentesque. Cras eget tellus ligula.
           </p>
         </div>
-        <div className='sticky-hero-end relative flex justify-center self-center slider h-[100rem]'>
-          <div className='item-slider'>
+        <div className='sticky-hero-end relative flex justify-center self-center w-[86.1dvw] h-[58.125rem] overflow-hidden'>
+          <div className='item-slider absolute w-full'>
             <Image
               className='active'
               src='/bg-bartha.svg'
@@ -493,7 +493,6 @@ export default function Header() {
             dignissim a leo nec vulputate. <br />
             Cras mattis porta dolor in viverra.
           </p>
-
           <a className='see-all' href=''>
             See All{' '}
             <Image

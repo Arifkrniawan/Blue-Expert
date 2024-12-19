@@ -36,10 +36,21 @@ export default function RootLayout({
       tl.fromTo(
         ".sticky-entry",
         { yPercent: 50, opacity: 0} ,
-        { yPercent: 0, opacity: 1, duration: 1}
+        { yPercent: 0, opacity: 1, duration: 2}
       )
-      tl.fromTo(".slide-up-50", {yPercent: 50, opacity: 0}, {yPercent: 0, opacity: 1, duration:1, ease: "power2.out"},"<")
-      tl.fromTo(".slide-up-100", {yPercent: 100, opacity: 0}, {yPercent: 0, opacity: 1, duration:1, ease: "power2.out"},"<")
+      .fromTo(".slide-up-50", {yPercent: 50, opacity: 0}, {yPercent: 0, opacity: 1, duration:2, ease: "power2.out"},"<")
+      .fromTo(".slide-up-100", {yPercent: 100, opacity: 0}, {yPercent: 0, opacity: 1, duration:2, ease: "power2.out"},"<")
+      .fromTo(".slide-up-101", {yPercent: 101, opacity: 0}, {yPercent: 0, opacity: 1, duration:2, ease: "power2.out"},"<")
+      .to('.slide-up-100.content-span', {
+        clipPath : "inset(0px 0px 0px 0px)",
+        duration: 2,
+        ease: 'power2.out'
+      },'<')
+      .to('.slide-up-101.content-span', {
+        clipPath : "inset(0px 0px 0px 0px)",
+        duration: 2,
+        ease: 'power2.out'
+      },'<')
 
 
     sections.forEach((section) => {
@@ -52,15 +63,6 @@ export default function RootLayout({
         pinSpacing: false,
       });
     });
-
-    // ScrollTrigger.create({
-    //   trigger: ".footer",
-    //   start: "top center",
-    //   end: "20% center",
-    //   pin: true,
-    //   markers:true,
-    //   id: "footer"
-    // })
 
     function update(time: number) {
       lenisRef.current?.lenis?.raf(time * 1000);

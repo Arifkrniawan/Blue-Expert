@@ -58,7 +58,6 @@ export default function RootLayout({
         start: "top 17%",
         end: "+=670",
         pin: true,
-        markers: true,
         pinSpacing: false,
       });
     });

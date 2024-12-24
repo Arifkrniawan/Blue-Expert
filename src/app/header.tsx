@@ -227,7 +227,7 @@ export default function Header() {
       )
       .fromTo( headerOnEnter1,
         {
-          width: '95%',
+          width: '100%',
           borderBottomLeftRadius: '4rem',
           borderBottomRightRadius: '4rem',
         },
@@ -330,7 +330,7 @@ export default function Header() {
               />
             </button>
             <Image
-              className='slide-up-101 content-span left-16 top-20'
+              className='image-slash slide-up-101 content-span left-16 top-20'
               src='/imageslash.svg'
               alt='img'
               width={262.636}
@@ -396,7 +396,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <div className='sticky w-[38.75rem] z-[7]'>
+        <div className='sticky w-[38.75rem] z-[7] h-[28.375rem]'>
           <div className='sticky-entry z-[7]'>
             <Image
               className='absolute'
@@ -408,7 +408,7 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <div className='marquee-header relative flex left-[50%] right-[50%] h-[10.85dvh] ml-[-50dvw] mr-[-50dvw] bg-blue-400 z-10'>
+      <div className='marquee-header relative flex items-center left-[50%] right-[50%] h-[10.85dvh] ml-[-50dvw] mr-[-50dvw] bg-blue-400 z-10'>
         <div className='w-64 content-center font-manropeRegular'>
           <p className='my-8 w-[10.9rem] ml-8 mr-[3.75rem] h-[2.5rem] text-xs text-black leading-snug'>
             Leading in the Business World: Our Clients
@@ -440,10 +440,16 @@ export default function Header() {
             <li>
               <Image src='pvj.svg' alt='' width={10.25} height={40} />
             </li>
+            <li>
+              <Image src='bartha.svg' alt='' width={10.25} height={40} />
+            </li>
+            <li>
+              <Image src='pvj.svg' alt='' width={10.25} height={40} />
+            </li>
           </ul>
         </div>
       </div>
-      <div className='header1 relative flex flex-col text-white text-[1.2rem] self-center justify-center items-center bg-[#0D100D] z-10 w-full'>
+      <div className='header1 relative flex flex-col text-white text-[1.2rem] self-center justify-center items-center bg-[#0D100D] z-10 w-[95dvw]'>
         <div className='Justify-center items-center mx-auto mt-20'>
           <p className='text-center text-blue-500 text-base w-[48rem]'>
             Work & Project

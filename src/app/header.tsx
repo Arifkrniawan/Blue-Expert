@@ -198,6 +198,7 @@ export default function Header() {
 
     const tl = horizontalLoop(scrollingText, {
       repeat: -1,
+      speed: 0.5
     });
 
     const headerOnEnter = document.querySelector('.header');
@@ -227,7 +228,7 @@ export default function Header() {
       )
       .fromTo( headerOnEnter1,
         {
-          width: '95%',
+          width: '100%',
           borderBottomLeftRadius: '4rem',
           borderBottomRightRadius: '4rem',
         },
@@ -247,6 +248,8 @@ export default function Header() {
     headerOnEnter?.addEventListener('mouseleave', () => {
       tl1.reverse();
     });
+
+    tl.play()
   }, []);
 
   return (
@@ -262,14 +265,14 @@ export default function Header() {
       className='header relative flex flex-col text-white w-[95%] mx-auto bg-[#0D100D] oveflow-hidden'
     >
       <Image
-        className='header-shadow absolute border-0 left-0 h-[49.4375rem]'
+        className='header-shadow-left header-shadow absolute border-0 left-0 h-[49.4375rem]'
         src='/vector-7.svg'
         alt='vector7'
         width={640}
         height={787}
       />
       <Image
-        className='header-shadow absolute border-0 right-0 top-18 h-[49.4375rem]'
+        className='header-shadow-right header-shadow absolute border-0 right-0 top-18 h-[49.4375rem]'
         src='/vector-6.svg'
         alt='vector6'
         width={640}
@@ -277,50 +280,50 @@ export default function Header() {
       />
       <div className='relative mx-auto flex h-[80.87dvh] w-[80dvw] justify-center overflow-hidden'>
         <Image
-          className='slide-up-50 absolute left-0 -bottom-4'
-          src='/studioDisplay1.svg'
+          className='studio-display-left slide-up-50 absolute left-0 -bottom-4'
+          src='/studio-display-left.svg'
           alt='studio display'
           width={398}
           height={424}
         />
         <Image
-          className='absolute slide-up-50 top-[18.625rem] right-0'
+          className='studio-display-right absolute slide-up-50 -bottom-24 right-0'
           src='/studioDisplay2.svg'
           alt='studio Display'
           width={752}
           height={578}
         />
         <Image
-          className='absolute slide-up-50 -bottom-80'
+          className='hero-ellipse-img absolute slide-up-50 -bottom-80'
           src='/hero-ellipse-bg.svg'
           alt='ellipse-bg'
           width={1440}
           height={966}
         />
         <div className='relative grid grid-cols-2 row-start-1'>
-          <div className='relative flex flex-col col-start-1 col-end-1 mt-12 w-[43rem]'>
+          <div className='header-left-heading relative flex flex-col col-start-1 col-end-1 mt-12 w-[43rem]'>
             <div className='relative content-span'>
               <span className='flex slide-up-100'>
                 <Image
-                  className='relative w-[48px] h-[4.75rem] ml-[1.6875rem]'
+                  className='logo-semut relative w-12 h-[4.75rem] ml-[1.6875rem]'
                   src='/logosemut.svg'
                   alt='logo'
-                  width={180}
-                  height={37}
+                  width={48}
+                  height={76}
                 />
-                <h1 className='leading-[5.8rem] font-lota text-7xl ml-6'>
+                <h1 className='font-lota text-7xl ml-6'>
                   <b>Create</b> websites
                 </h1>
               </span>
             </div>
             <div className='content-span'>
               <span className='flex slide-up-100'>
-                <h1 className='font-lota text-7xl tracking-custom'>
+                <h1 className='font-lota text-7xl'>
                   with less work
                 </h1>
               </span>
             </div>
-            <button className='slide-up-50 button py-4 px-8 w-[14.5rem] h-[3.5rem] font-beeboMedium'>
+            <button className='flex items-center slide-up-50 button py-4 gap-x-4 w-[14.5rem] font-manropeRegular'>
               Explore BlueXpert
               <Image
                 src='/link-button.svg'
@@ -330,14 +333,14 @@ export default function Header() {
               />
             </button>
             <Image
-              className='slide-up-101 content-span left-16 top-20'
+              className='image-slash slide-up-101 content-span left-16 top-20'
               src='/imageslash.svg'
               alt='img'
               width={262.636}
               height={16.507}
             />
           </div>
-          <div className='relative flex flex-col mt-12 ml-[11.625rem]'>
+          <div className='relative flex flex-col testimonial-paragraph mt-12 ml-[11.625rem]'>
             <div className='relative flex font-manropeRegular w-[22rem]'>
               <p className='text-[1rem] content-span slide-up-100'>
                 Lorem ipsum dolor sit amet, consectetur
@@ -350,38 +353,38 @@ export default function Header() {
             <div className='relative flex slide-up-50'>
               <div className=''>
                 <Image
-                  className='absolute bottom-[5.5rem] z-4'
+                  className='testimonial-photo absolute bottom-[5.5rem] z-4'
                   src='review-photo.svg'
                   alt='testi0'
                   width={40}
                   height={40}
                 />
                 <Image
-                  className='absolute bottom-[5.5rem] left-7 z-3'
+                  className='testimonial-photo absolute bottom-[5.5rem] left-7 z-3'
                   src='review-photo1.svg'
                   alt='testi0'
                   width={40}
                   height={40}
                 />
                 <Image
-                  className='absolute bottom-[5.5rem] left-14 z-2'
+                  className='testimonial-photo absolute bottom-[5.5rem] left-14 z-2'
                   src='review-photo2.svg'
                   alt='testi0'
                   width={40}
                   height={40}
                 />
                 <Image
-                  className='absolute bottom-[5.5rem] left-[5.25rem] z-1'
+                  className='testimonial-photo absolute bottom-[5.5rem] left-[5.25rem] z-1'
                   src='review-photo3.svg'
                   alt='testi0'
                   width={40}
                   height={40}
                 />
-                <p className='font-manropeRegular mt-24'>
+                <p className='testimonial-reviews font-manropeRegular mt-24'>
                   6k+ reviews (4.8 of 5)
                 </p>
               </div>
-              <div className='relative flex slide-up-50 justify-end mt-[6.5rem]'>
+              <div className='arrow-container relative flex slide-up-50 justify-end mt-[6.5rem]'>
                 <Image
                   className='arrow opacity-100 right-36 bottom-4'
                   src='/arrow.png'
@@ -396,21 +399,20 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <div className='sticky w-[38.75rem] h-[28.375rem] z-[7]'>
+        <div className='sticky-image w-[38.75rem] z-[7] h-[28.375rem]'>
           <div className='sticky-entry z-[7]'>
             <Image
               className='absolute'
               src='/heroExpert.svg'
               alt='heroexpert'
-              sizes='38.75rem'
               fill
               style={{ objectFit: 'contain' }}
             />
           </div>
         </div>
       </div>
-      <div className='marquee-header relative flex left-[50%] right-[50%] h-[10.85dvh] ml-[-50dvw] mr-[-50dvw] bg-blue-400 z-10'>
-        <div className='RT1 w-64 content-center font-manropeRegular'>
+      <div className='marquee-header relative flex items-center left-[50%] right-[50%] h-[10.85dvh] ml-[-50dvw] mr-[-50dvw] bg-blue-400 z-10'>
+        <div className='w-64 content-center font-manropeRegular'>
           <p className='my-8 w-[10.9rem] ml-8 mr-[3.75rem] h-[2.5rem] text-xs text-black leading-snug'>
             Leading in the Business World: Our Clients
           </p>
@@ -441,10 +443,22 @@ export default function Header() {
             <li>
               <Image src='pvj.svg' alt='' width={10.25} height={40} />
             </li>
+            <li>
+              <Image src='bartha.svg' alt='' width={10.25} height={40} />
+            </li>
+            <li>
+              <Image src='pvj.svg' alt='' width={10.25} height={40} />
+            </li>
+            <li>
+              <Image src='bartha.svg' alt='' width={10.25} height={40} />
+            </li>
+            <li>
+              <Image src='pvj.svg' alt='' width={10.25} height={40} />
+            </li>
           </ul>
         </div>
       </div>
-      <div className='header1 relative flex flex-col text-white text-[1.2rem] self-center justify-center items-center bg-[#0D100D] z-10 w-full'>
+      <div className='header1 relative flex flex-col text-white text-[1.2rem] self-center justify-center items-center bg-[#0D100D] z-10 w-[95dvw]'>
         <div className='Justify-center items-center mx-auto mt-20'>
           <p className='text-center text-blue-500 text-base w-[48rem]'>
             Work & Project

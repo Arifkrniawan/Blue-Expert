@@ -28,29 +28,52 @@ export default function RootLayout({
   const lenisRef = useRef<LenisInstanceType>(null);
 
   useGSAP(() => {
-    let sections = gsap.utils.toArray<HTMLElement>(".sticky");
+    let sections = gsap.utils.toArray<HTMLElement>(".sticky-image");
+    const stickyNav = document.getElementsByTagName("nav");
 
-      let tl = gsap.timeline();
+    let tl = gsap.timeline();
 
-      tl.fromTo(
-        ".sticky-entry",
-        { yPercent: 50, opacity: 0} ,
-        { yPercent: 0, opacity: 1, duration: 2}
+    tl.fromTo(
+      ".sticky-entry",
+      { yPercent: 50, opacity: 0 },
+      { yPercent: 0, opacity: 1, duration: 2 }
+    )
+      .fromTo(
+        ".slide-up-50",
+        { yPercent: 50, opacity: 0 },
+        { yPercent: 0, opacity: 1, duration: 2, ease: "power2.out" },
+        "<"
       )
-      .fromTo(".slide-up-50", {yPercent: 50, opacity: 0}, {yPercent: 0, opacity: 1, duration:2, ease: "power2.out"},"<")
-      .fromTo(".slide-up-100", {yPercent: 100, opacity: 0}, {yPercent: 0, opacity: 1, duration:2, ease: "power2.out"},"<")
-      .fromTo(".slide-up-101", {yPercent: 101, opacity: 0}, {yPercent: 0, opacity: 1, duration:2, ease: "power2.out"},"<")
-      .to('.slide-up-100.content-span', {
-        clipPath : "inset(0px 0px 0px 0px)",
-        duration: 2,
-        ease: 'power2.out'
-      },'<')
-      .to('.slide-up-101.content-span', {
-        clipPath : "inset(0px 0px 0px 0px)",
-        duration: 2,
-        ease: 'power2.out'
-      },'<')
-
+      .fromTo(
+        ".slide-up-100",
+        { yPercent: 100, opacity: 0 },
+        { yPercent: 0, opacity: 1, duration: 2, ease: "power2.out" },
+        "<"
+      )
+      .fromTo(
+        ".slide-up-101",
+        { yPercent: 101, opacity: 0 },
+        { yPercent: 0, opacity: 1, duration: 2, ease: "power2.out" },
+        "<"
+      )
+      .to(
+        ".slide-up-100.content-span",
+        {
+          clipPath: "inset(0px 0px 0px 0px)",
+          duration: 2,
+          ease: "power2.out",
+        },
+        "<"
+      )
+      .to(
+        ".slide-up-101.content-span",
+        {
+          clipPath: "inset(0px 0px 0px 0px)",
+          duration: 2,
+          ease: "power2.out",
+        },
+        "<"
+      );
 
     sections.forEach((section) => {
       ScrollTrigger.create({
@@ -62,14 +85,24 @@ export default function RootLayout({
       });
     });
 
+    ScrollTrigger.create({
+      trigger: stickyNav,
+      start: "top top",
+      end: "bottom bottom",
+      endTrigger: 'sticky-hero-end1',
+      pin: stickyNav,
+      pinSpacing: false
+    })
+    
+
     function update(time: number) {
       lenisRef.current?.lenis?.raf(time * 1000);
     }
 
     gsap.ticker.add(update);
 
-    return () => gsap.ticker.remove(update)
-    ScrollTrigger.getAll().forEach(t=> t.kill);
+    return () => gsap.ticker.remove(update);
+    ScrollTrigger.getAll().forEach((t) => t.kill);
   }, []);
 
   return (

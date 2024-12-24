@@ -466,7 +466,7 @@ export default function Home() {
       </section>
       <section className="footer relative flex flex-col text-white w-[95%] mx-auto overflow-hidden">
         <div className="relative mx-auto grid grid-rows-1 grid-cols-1 items-center justify-items-center w-[90dvw]">
-          <div className="sticky -top-[16rem] w-[38.75rem] h-[28.375rem] col-start-1 col-end-1 z-[7]">
+          <div className="sticky-image -top-[16rem] w-[38.75rem] h-[28.375rem] col-start-1 col-end-1 z-[7]">
             <div className="sticky-entry z-[7]">
               <Image
                 className="absolute"

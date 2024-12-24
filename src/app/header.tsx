@@ -396,7 +396,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <div className='sticky w-[38.75rem] z-[7] h-[28.375rem]'>
+        <div className='sticky-image w-[38.75rem] z-[7] h-[28.375rem]'>
           <div className='sticky-entry z-[7]'>
             <Image
               className='absolute'

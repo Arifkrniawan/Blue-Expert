@@ -198,6 +198,7 @@ export default function Header() {
 
     const tl = horizontalLoop(scrollingText, {
       repeat: -1,
+      speed: 0.5
     });
 
     const headerOnEnter = document.querySelector('.header');
@@ -247,6 +248,8 @@ export default function Header() {
     headerOnEnter?.addEventListener('mouseleave', () => {
       tl1.reverse();
     });
+
+    tl.play()
   }, []);
 
   return (
@@ -262,14 +265,14 @@ export default function Header() {
       className='header relative flex flex-col text-white w-[95%] mx-auto bg-[#0D100D] oveflow-hidden'
     >
       <Image
-        className='header-shadow absolute border-0 left-0 h-[49.4375rem]'
+        className='header-shadow-left header-shadow absolute border-0 left-0 h-[49.4375rem]'
         src='/vector-7.svg'
         alt='vector7'
         width={640}
         height={787}
       />
       <Image
-        className='header-shadow absolute border-0 right-0 top-18 h-[49.4375rem]'
+        className='header-shadow-right header-shadow absolute border-0 right-0 top-18 h-[49.4375rem]'
         src='/vector-6.svg'
         alt='vector6'
         width={640}
@@ -291,7 +294,7 @@ export default function Header() {
           height={578}
         />
         <Image
-          className='absolute slide-up-50 -bottom-80'
+          className='hero-ellipse-img absolute slide-up-50 -bottom-80'
           src='/hero-ellipse-bg.svg'
           alt='ellipse-bg'
           width={1440}
@@ -320,7 +323,7 @@ export default function Header() {
                 </h1>
               </span>
             </div>
-            <button className='slide-up-50 button py-4 px-8 w-[14.5rem] font-beeboMedium'>
+            <button className='flex items-center slide-up-50 button py-4 gap-x-4 w-[14.5rem] font-manropeRegular'>
               Explore BlueXpert
               <Image
                 src='/link-button.svg'
@@ -337,7 +340,7 @@ export default function Header() {
               height={16.507}
             />
           </div>
-          <div className='relative flex flex-col mt-12 ml-[11.625rem]'>
+          <div className='relative flex flex-col testimonial-paragraph mt-12 ml-[11.625rem]'>
             <div className='relative flex font-manropeRegular w-[22rem]'>
               <p className='text-[1rem] content-span slide-up-100'>
                 Lorem ipsum dolor sit amet, consectetur
@@ -377,7 +380,7 @@ export default function Header() {
                   width={40}
                   height={40}
                 />
-                <p className='testimonial-paragraph font-manropeRegular mt-24'>
+                <p className='testimonial-reviews font-manropeRegular mt-24'>
                   6k+ reviews (4.8 of 5)
                 </p>
               </div>
@@ -416,6 +419,12 @@ export default function Header() {
         </div>
         <div className='marquee my-8'>
           <ul className='marquee-content'>
+            <li>
+              <Image src='bartha.svg' alt='' width={10.25} height={40} />
+            </li>
+            <li>
+              <Image src='pvj.svg' alt='' width={10.25} height={40} />
+            </li>
             <li>
               <Image src='bartha.svg' alt='' width={10.25} height={40} />
             </li>

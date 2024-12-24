@@ -106,6 +106,10 @@ html.lenis body {
   opacity: 0;
 }
 
+.header-left-heading {
+  gap: 0;
+  line-height: 6rem;
+}
 
 .footer {
   background: url("/background-footer.svg");
@@ -133,14 +137,12 @@ ul > li:nth-child(1) {
 .button {
   justify-content: center;
   align-items: center;
-  gap: 12px;
-  display: inline-flex;
+  display: flex;
   border-radius: 200px;
   border: 1px solid #14b1ff;
-  font-size: 0.9875rem;
+  font-size: 1rem;
   font-style: normal;
-  font-weight: 500;
-  line-height: 15px;
+  line-height: 1rem;
 }
 
 /* SET CLIP PATH */
@@ -368,27 +370,38 @@ screen
 }
 
 @media screen and (max-width: 1366px) and (max-height:768px) {
+  
+  html {
+    font-size: 14px
+  }
+ 
   /* Navbar */
 
-  /* .button {
+  .button {
     margin-top: .5rem;
     margin-bottom: .5rem;
-  } */
-
-  .header h1 {
-    font-size: calc(.9 * 4.5rem);
-    line-height: 5rem;
   }
 
-  .header {
-    background-color: #fc4cda;
+
+  /*header */
+  .header-shadow-left {
+    left: -1.3rem
+  }
+
+  .header-shadow-right {
+    right: -1rem
+  }
+
+  .header h1 {
+    line-height: 5rem;
+    gap: 1rem;
   }
 
   .header button {
     font-size: calc(0.95 * 0.9875rem);
     width: calc(0.95 * 14.5rem);
     height: calc(0.795 * 3.5rem);
-    padding: 2px 2px;
+    gap: .5rem;
   }
 
   .logo-semut{
@@ -397,28 +410,24 @@ screen
   }
 
   .header-left-heading {
-    height: 20rem;
-    margin-top: 2.4rem;
-  }
-
-  .header-left-heading > div {
-    height: 4.3rem;
+    gap: 1rem;
+    margin-top: 2rem;
   }
 
   .studio-display-left {
-    width: calc(398px * 1);
-    height: calc(424px * 0.64);
-    left:8rem;
+    max-width: calc(398px * 1);
+    max-height: calc(424px * 0.64);
+    left:8.6rem;
   }
 
   .studio-display-right {
-    width: calc(752px * 0.95);
-    height: calc(578px * 0.64);
+    max-width: calc(752px * 0.95);
+    max-height: calc(578px * 0.625);
     bottom: -4rem;
   }
 
   .image-slash {
-    top: 4rem
+    top: 4.5rem
   }
 
   .sticky-image {
@@ -428,7 +437,10 @@ screen
 
   .header .button {
     width: 12rem;
-    margin-top: 0.75rem;
+    margin-top: 0rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
   }
 
   .header button > img {
@@ -437,7 +449,7 @@ screen
   }
 
   .header p {
-    font-size: 0.98rem;
+    font-size: .9rem;
   }
 
   .testimonial-photo {
@@ -460,7 +472,17 @@ screen
   }
 
   .testimonial-paragraph {
-    margin-top: 5rem;
+    margin-top: 2rem;
+  }
+
+  .testimonial-review {
+    margin-top: 0;
+    bottom: 2rem;
+  }
+
+  .hero-ellipse-img {
+    max-width: 1300px;
+    max-height: 700px;
   }
 
   /* MARQUEE */

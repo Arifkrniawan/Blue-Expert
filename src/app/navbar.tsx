@@ -5,11 +5,11 @@ export default function Navbar() {
   return (
     <nav className="flex navbar1 sticky top-0 h-[8.28dvh] bg-[#0D100D] w-full z-50">
       <div className="h-[8.28dvh] w-dvw mx-[6.25rem] my-auto flex justify-between">
-        <div className="py-[24px] gap-[8px] flex items-center">
-          <a className="text-white p-[24px]">Work & Project</a>
+        <div className="py-6 gap-2 flex items-center">
+          <a className="text-white p-6">Work & Project</a>
         </div>
-        <div className="py-[24px] gap-[8px] flex items-center">
-          <a className="text-white p-[24px]">Services</a>
+        <div className="py-6 gap-2 flex items-center">
+          <a className="text-white p-6">Services</a>
         </div>
         <Image
           src="/logosemut.svg"
@@ -18,11 +18,11 @@ export default function Navbar() {
           height={40}
           priority
         />
-        <div className="py-[24px] gap-[8px] flex items-center">
-          <a className="text-white p-[24px]">Team</a>
+        <div className="py-6 gap-2 flex items-center">
+          <a className="text-white p-6">Team</a>
         </div>
-        <button className="button gap-[8px] w-[9.5625rem] h-12 flex items-center self-center">
-          <a className="text-white p-[24px]">Get Contact</a>
+        <button className="button gap-2 w-[9.5625rem] h-12 flex items-center self-center">
+          <a className="text-white p-6">Get Contact</a>
         </button>
       </div>
     </nav>

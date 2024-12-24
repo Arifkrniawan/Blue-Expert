@@ -210,16 +210,6 @@ export default function Home() {
       ".marquee-footer-content li"
     ) as HTMLElement[];
 
-    // const footerElements = Array.from(footerOnEnter);
-
-    // let animation = gsap.to(footerOnEnter, {
-    //   paused:true,
-    //   width: '100%',
-    //   borderTopLeftRadius: 0,
-    //   borderTopRightRadius: 0,
-    //   duration: 1,
-    // })
-
     const tl1 = gsap.timeline({
       paused: true,
     });
@@ -276,22 +266,6 @@ export default function Home() {
       trigger: ".footer",
       start: ".design-card ",
     });
-
-    function showNextSlide() {
-      if (currentSlide < totalSlides) {
-        slides[currentSlide].classList.remove("active");
-        slides[currentSlide].classList.add("move-down");
-
-        currentSlide = (currentSlide + 1) % slides.length;
-
-        slides[currentSlide].classList.add("active");
-
-        setTimeout(() => {
-          slides[currentSlide].classList.remove("move-down");
-        }, 1000);
-      }
-    }
-    setInterval(showNextSlide, 3000);
   }, []);
 
   return (

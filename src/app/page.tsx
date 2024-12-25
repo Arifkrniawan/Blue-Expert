@@ -14,10 +14,6 @@ export default function Home() {
   // const setTriggerRef = useScrollAnimationStore((state)=> state.setTriggerRef)
 
   useGSAP(() => {
-    let currentSlide = 0;
-    const slides = document.querySelectorAll(".item-slider img");
-    const totalSlides = slides.length - 1;
-
     gsap.registerPlugin(Observer);
 
     interface HorizontalLoopConfig {
@@ -214,6 +210,7 @@ export default function Home() {
       paused: true,
     });
 
+
     tl1.fromTo(
       footerOnEnter,
       {
@@ -256,21 +253,16 @@ export default function Home() {
       tl.pause();
     });
 
-    const designElement = document.querySelector(".design-card");
+    const tlWeb = gsap.timeline({
+      paused: true
+    })
 
-    const designHeight = designElement?.getBoundingClientRect();
-
-    const designHegiht1 = designHeight?.height;
-
-    ScrollTrigger.create({
-      trigger: ".footer",
-      start: ".design-card ",
-    });
+    
   }, []);
 
   return (
-    <main className="relative flex flex-col bg-inherit mx-auto overflow-hidden">
-      <section className="relative grid grid-row-2 bg-white z-10 justify-center w-full mx-auto">
+    <main className="relative flex flex-col bg-inherit overflow-hidden">
+      <section className="relative grid grid-col-1 grid-row-2 bg-white z-10 justify-center w-full mx-auto">
         <div className="row-start-1 row-end-1 flex flex-col justify-center items-center mt-[7.5rem] mx-auto">
           <p className="text-center text-blue-500 text-base">Services</p>
           <h2 className="text-center text-[3.5rem] font-bold font-lota mt-3">
@@ -281,8 +273,8 @@ export default function Home() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
-        <div className="flex row-start-2 row-end-2 gap-x-6 col-start-1 justify-center items-center mt-20 mb-[15.75rem] w-[95%] mx-auto">
-          <div className="product-card flex flex-col items-center py-11 px-4 w-[17.813rem] z-10">
+        <div className="flex cotainer-card row-start-2 row-end-2 gap-x-6 col-start-1 justify-center items-center mt-20 mb-[15.75rem] w-[95%] mx-auto">
+          <div className="product-card flex flex-col items-center py-11 px-4 w-[17.813rem] h-[21.875rem] z-10">
             <div className="relative flex flex-col items-center">
               <div className="absolute web-card-bg flex justify-center align-center h-[6.688rem] w-[14.8rem] bg-[#fc4cda] overflow-hidden">
                 <Image

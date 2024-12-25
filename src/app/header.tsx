@@ -9,6 +9,11 @@ export default function Header() {
   const [flash, setFlashed] = useState(false);
 
   useGSAP(() => {
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".item-slider img");
+    const totalSlides = slides.length - 1;
+    
     gsap.registerPlugin(Observer);
 
     interface HorizontalLoopConfig {
@@ -250,6 +255,22 @@ export default function Header() {
     });
 
     tl.play()
+
+    function showNextSlide() {
+      if (currentSlide < totalSlides) {
+        slides[currentSlide].classList.remove("active");
+        slides[currentSlide].classList.add("move-down");
+
+        currentSlide = (currentSlide + 1) % slides.length;
+
+        slides[currentSlide].classList.add("active");
+
+        setTimeout(() => {
+          slides[currentSlide].classList.remove("move-down");
+        }, 1000);
+      }
+    }
+    setInterval(showNextSlide, 3000);
   }, []);
 
   return (
@@ -508,7 +529,7 @@ export default function Header() {
             Cras mattis porta dolor in viverra.
           </p>
           <a className='see-all' href=''>
-            See All{' '}
+            See All
             <Image
               src='/arrow-narrow-right-down.svg'
               alt='arrow narrow'

@@ -549,4 +549,22 @@ ul > li:nth-child(1) {
   .container-card {
     width: 100%;
   }
+
+  /*SECTION NTH LAST CHILD */
+  
+  .web-card-bg img:nth-child(1),
+  .cms-card-bg img:nth-child(1),
+  .mobile-card-bg img:nth-child(1),
+  .design-card-bg img:nth-child(1){
+    max-width: 120px;
+    max-height: 90px;
+  }
+
+  .web-card-bg img:nth-child(2),
+  .cms-card-bg img:nth-child(2),
+  .mobile-card-bg img:nth-child(2),
+  .design-card-bg img:nth-child(2){
+    max-width: 140px;
+    max-height: 120px;
+  }
 }

@@ -253,6 +253,9 @@ export default function Home() {
       anticipatePin: 1
     })
 
+    const stickyImage = document.querySelector('.sticky-image')
+  
+
     footerOnEnter?.addEventListener("mouseenter", () => {
       tl1.play();
       tl.play();

@@ -248,7 +248,6 @@ export default function Home() {
       endTrigger: 'section.footer',
       pin: '.feature-section',
       pinSpacing: true,
-      markers: true,
       id: 'footer',
       anticipatePin: 1
     })

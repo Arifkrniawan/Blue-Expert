@@ -210,7 +210,6 @@ export default function Home() {
       paused: true,
     });
 
-
     tl1.fromTo(
       footerOnEnter,
       {
@@ -242,6 +241,18 @@ export default function Home() {
         ease: "power2.inOut",
       });
 
+    ScrollTrigger.create({
+      trigger: '.feature-section',
+      start: '55% top',
+      end: 'top top',
+      endTrigger: 'section.footer',
+      pin: '.feature-section',
+      pinSpacing: true,
+      markers: true,
+      id: 'footer',
+      anticipatePin: 1
+    })
+
     footerOnEnter?.addEventListener("mouseenter", () => {
       tl1.play();
       tl.play();
@@ -252,17 +263,11 @@ export default function Home() {
       tl1.reverse();
       tl.pause();
     });
-
-    const tlWeb = gsap.timeline({
-      paused: true
-    })
-
-    
   }, []);
 
   return (
     <main className="relative flex flex-col bg-inherit overflow-hidden">
-      <section className="relative grid grid-col-1 grid-row-2 bg-white z-10 justify-center w-full mx-auto">
+      <section className="relative feature-section grid grid-col-1 grid-row-2 bg-white z-10 justify-center w-full mx-auto">
         <div className="row-start-1 row-end-1 flex flex-col justify-center items-center mt-[7.5rem] mx-auto">
           <p className="text-center text-blue-500 text-base">Services</p>
           <h2 className="text-center text-[3.5rem] font-bold font-lota mt-3">
@@ -273,7 +278,7 @@ export default function Home() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
-        <div className="flex cotainer-card row-start-2 row-end-2 gap-x-6 col-start-1 justify-center items-center mt-20 mb-[15.75rem] w-[95%] mx-auto">
+        <div className="flex cotainer-card row-start-2 row-end-2 gap-x-6 col-start-1 justify-center items-center mt-20 w-[95%] mx-auto">
           <div className="product-card flex flex-col items-center py-11 px-4 w-[17.813rem] h-[21.875rem] z-10">
             <div className="relative flex flex-col items-center">
               <div className="absolute web-card-bg flex justify-center align-center h-[6.688rem] w-[14.8rem] bg-[#fc4cda] overflow-hidden">
@@ -416,21 +421,21 @@ export default function Home() {
           </div>
         </div>
         <Image
-          className="absolute bottom-[7%] left-[5%]"
+          className="absolute -bottom-[35%] left-[5%]"
           src="feature-bg-blue.svg"
           alt="bg"
           width={800}
           height={700}
         />
         <Image
-          className="absolute bottom-[7%] right-[5%]"
+          className="absolute -bottom-[35%] right-[5%]"
           src="feature-bg-pink.svg"
           alt="bg"
           width={1000}
           height={800}
         />
       </section>
-      <section className="footer relative flex flex-col text-white w-[95%] mx-auto overflow-hidden">
+      <section className="footer relative flex flex-col text-white w-[95%] mx-auto overflow-hidden z-20">
         <div className="relative mx-auto grid grid-rows-1 grid-cols-1 items-center justify-items-center w-[90dvw]">
           <div className="sticky-image -top-[16rem] w-[38.75rem] h-[28.375rem] col-start-1 col-end-1 z-[7]">
             <div className="sticky-entry z-[7]">

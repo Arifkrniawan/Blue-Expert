@@ -82,8 +82,25 @@ export default function RootLayout({
         end: "+=670",
         pin: true,
         pinSpacing: false,
+        onUpdate: (self) => {
+          if (window.scrollY > 2700 && window.scrollY < 3300 ){
+            gsap.to(section, {
+              opacity: 0,
+              duration: 0,
+            })
+          } else {
+            gsap.to(section, {
+              opacity: 1,
+              duration: 0,
+            })
+          }
+        }
       });
     });
+
+    window.addEventListener('scroll', ()=>{
+      console.log(`This Y hight: ${window.scrollY}`)
+    })
 
     ScrollTrigger.create({
       trigger: stickyNav,

@@ -250,9 +250,7 @@ export default function Home() {
       pinSpacing: true,
       id: 'footer',
       anticipatePin: 1
-    })
-
-    const stickyImage = document.querySelector('.sticky-image')
+    })  
   
 
     footerOnEnter?.addEventListener("mouseenter", () => {

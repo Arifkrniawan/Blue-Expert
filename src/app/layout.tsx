@@ -75,42 +75,67 @@ export default function RootLayout({
         "<"
       );
 
-    sections.forEach((section) => {
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top 17%",
-        end: "+=670",
-        pin: true,
-        pinSpacing: false,
-        onUpdate: (self) => {
-          if (window.scrollY > 2700 && window.scrollY < 3300 ){
-            gsap.to(section, {
-              opacity: 0,
-              duration: 0,
-            })
-          } else {
-            gsap.to(section, {
-              opacity: 1,
-              duration: 0,
-            })
-          }
-        }
+    let mm = gsap.matchMedia();
+
+    mm.add("(max-width: 1366px) and (max-height:768px)", () => {
+      let isVisible = true;
+      sections.forEach((section) => {
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top 17%",
+          end: "+=670",
+          pin: true,
+          pinSpacing: false,
+          onUpdate: (self) => {
+            if (self.scroll() > 2500 && self.scroll() < 2700) {
+              gsap.to(section, {
+                opacity: 0,
+                duration: 0,
+              });
+            } else {
+              gsap.to(section, {
+                opacity: 1,
+                duration: 0,
+              });
+            }
+          },
+        });
       });
     });
 
-    window.addEventListener('scroll', ()=>{
-      console.log(`This Y hight: ${window.scrollY}`)
-    })
+    mm.add("(min-width:1399px)", () => {
+      sections.forEach((section) => {
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top 17%",
+          end: "+=670",
+          pin: true,
+          pinSpacing: false,
+          onUpdate: (self) => {
+            if (self.scroll() > 2700 && self.scroll() < 3300) {
+              gsap.to(section, {
+                opacity: 0,
+                duration: 0,
+              });
+            } else {
+              gsap.to(section, {
+                opacity: 1,
+                duration: 0,
+              });
+            }
+          },
+        });
+      });
+    });
 
     ScrollTrigger.create({
       trigger: stickyNav,
       start: "top top",
       end: "bottom bottom",
-      endTrigger: 'sticky-hero-end1',
+      endTrigger: "sticky-hero-end1",
       pin: stickyNav,
-      pinSpacing: false
-    })
-    
+      pinSpacing: false,
+    });
 
     function update(time: number) {
       lenisRef.current?.lenis?.raf(time * 1000);

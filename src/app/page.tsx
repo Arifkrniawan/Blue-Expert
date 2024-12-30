@@ -266,8 +266,8 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative flex flex-col bg-inherit overflow-hidden">
-      <section className="relative feature-section grid grid-col-1 grid-row-2 bg-white z-10 justify-center w-full mx-auto">
+    <main className="relative flex flex-col bg-inherit">
+      <section className="relative feature-section grid grid-col-1 grid-row-2 bg-white justify-center w-full mx-auto z-10">
         <div className="row-start-1 row-end-1 flex flex-col justify-center items-center mt-[7.5rem] mx-auto">
           <p className="text-center text-blue-500 text-base">Services</p>
           <h2 className="text-center text-[3.5rem] font-bold font-lota mt-3">
@@ -278,7 +278,7 @@ export default function Home() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
-        <div className="flex cotainer-card row-start-2 row-end-2 gap-x-6 col-start-1 justify-center items-center mt-20 w-[95%] mx-auto">
+        <div className="flex cotainer-card row-start-2 row-end-2 gap-x-6 col-start-1 justify-center items-center mt-20 w-[95%] mx-auto z-100">
           <div className="product-card flex flex-col items-center py-11 px-4 w-[17.813rem] h-[21.875rem] z-10">
             <div className="relative flex flex-col items-center">
               <div className="absolute web-card-bg flex justify-center align-center h-[6.688rem] w-[14.8rem] bg-[#fc4cda] overflow-hidden">
@@ -297,7 +297,7 @@ export default function Home() {
                   height={140}
                 />
               </div>
-              <div className="web-card items-center p-[0.688rem] w-[4.5rem] h-[4.5rem] z-[1]">
+              <div className="web-card items-center p-[0.688rem] w-[4.5rem] h-[4.5rem] z-10">
                 <Image
                   className="ml-0.5"
                   src="/web-product.svg"
@@ -332,7 +332,7 @@ export default function Home() {
                   height={140}
                 />
               </div>
-              <div className="items-center p-[0.625rem] w-[4.5rem] h-[4.5rem] cms-card z-[1]">
+              <div className="items-center p-[0.625rem] w-[4.5rem] h-[4.5rem] cms-card z-10">
                 <Image
                   className="m-auto items-center mt-1"
                   src="/cms-product.svg"
@@ -367,7 +367,7 @@ export default function Home() {
                   height={140}
                 />
               </div>
-              <div className="items-center justify-center p-[0.625rem] w-[4.5rem] h-[4.5rem] mobile-card z-[1]">
+              <div className="items-center justify-center p-[0.625rem] w-[4.5rem] h-[4.5rem] mobile-card z-10">
                 <Image
                   className="items-center justify-center ml-3"
                   src="/mobile-product.svg"
@@ -402,7 +402,7 @@ export default function Home() {
                   height={140}
                 />
               </div>
-              <div className="items-center p-[0.625rem] w-[4.5rem] h-[4.5rem] design-card z-[1]">
+              <div className="items-center p-[0.625rem] w-[4.5rem] h-[4.5rem] design-card z-10">
                 <Image
                   className="ml-0.5"
                   src="/design-product.svg"
@@ -420,24 +420,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Image
-          className="absolute -bottom-[35%] left-[5%]"
-          src="feature-bg-blue.svg"
-          alt="bg"
-          width={800}
-          height={700}
-        />
-        <Image
-          className="absolute -bottom-[35%] right-[5%]"
-          src="feature-bg-pink.svg"
-          alt="bg"
-          width={1000}
-          height={800}
-        />
       </section>
-      <section className="footer relative flex flex-col text-white w-[95%] mx-auto overflow-hidden z-20">
+      <section className="footer relative flex flex-col text-white w-[95%] mx-auto z-20 overflow-hidden ">
         <div className="relative mx-auto grid grid-rows-1 grid-cols-1 items-center justify-items-center w-[90dvw]">
-          <div className="sticky-image -top-[16rem] w-[38.75rem] h-[28.375rem] col-start-1 col-end-1 z-[7]">
+          <div className="sticky-image -top-[16rem] w-[38.75rem] h-[28.375rem] col-start-1 col-end-1 -z-[1]">
             <div className="sticky-entry z-[7]">
               <Image
                 className="absolute"

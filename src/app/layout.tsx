@@ -120,6 +120,7 @@ export default function RootLayout({
             } else {
               gsap.to(section, {
                 opacity: 1,
+                zIndex: -1,
                 duration: 0,
               });
             }
